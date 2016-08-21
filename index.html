@@ -576,11 +576,10 @@ Follow</span></button></div>
       let out = this.className;
       out = out.split(" ");
       out = out[1];
-      $('#newTweets-btn').click(function() {
-      	$('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
-      	$('.tweetsOutput').not("."+out).hide();
-      	$('#newTweets-btn').hide();
-      });
+      $('#newTweets-btn').click();
+      $('#newTweets-btn').hide();
+      $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
+      $('.tweetsOutput').not("."+out).hide();
   });
 
 
