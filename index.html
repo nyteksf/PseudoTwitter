@@ -575,8 +575,10 @@ Follow</span></button></div>
       let out = this.className;
       out = out.split(" ");
       out = out[1];
-      $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
-      $('.tweetsOutput').not("."+out).hide();
+      $('#newTweets-btn').click(function() {
+      	$('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
+      	$('.tweetsOutput').not("."+out).hide();	
+      });
   });
 
 
