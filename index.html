@@ -572,12 +572,14 @@ Follow</span></button></div>
   //FUNCTION TO HIDE CERTAIN TWEETS BUT NOT OTHERS
   $('body').delegate('.trendDivLink', 'click', function(event){
       event.preventDefault();
+      event.stopPropagation();
       let out = this.className;
       out = out.split(" ");
       out = out[1];
       $('#newTweets-btn').click(function() {
       	$('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
-      	$('.tweetsOutput').not("."+out).hide();	
+      	$('.tweetsOutput').not("."+out).hide();
+      	$('#newTweets-btn').hide();
       });
   });
 
