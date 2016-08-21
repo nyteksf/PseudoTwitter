@@ -47,10 +47,8 @@ window.users = Object.keys(streams.users); //LISTS ALL USERNAMES
 
 let visDisName;
 if(localStorage["visDisName"]) {
-  alert("a")
    visDisName = localStorage["visDisName"];
 } else {
-  alert("b")
 	 visDisName = prompt('Please enter your desired Display Name unless remaining anonymous:\nDon\'t worry. You will only be asked once.') || "Visitor Account";
 	 localStorage.setItem('visDisName',visDisName);
 }
@@ -127,7 +125,16 @@ let visUIcon;
 let visBGImg;
 let num = Math.floor(Math.random() * (64529-23040) + 23040);
 let visUName;
-streams.visitor.uName = visUName = 'guest'+num;
+//streams.visitor.uName = visUName = 'guest'+num;
+
+if(localStorage["visUName"]) {
+   visUName = localStorage["visUName"];
+} else {
+	 visUName = 'guest'+num;
+	 localStorage.setItem('visUName',visUName);
+}
+streams.visitor.uName = visUName;
+
 streams.visitor.uIcon = visUIcon = 'http://i68.tinypic.com/fx57hs.png';
 streams.visitor.bgImg = visBGImg ='http://i65.tinypic.com/21acvaw.jpg';
 
