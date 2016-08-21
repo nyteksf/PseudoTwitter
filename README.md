@@ -1,2 +1,2 @@
 # PseudoTwitter App
-Twitter Clone; Mock UI
+Twitter Clone w/ Mock UI
