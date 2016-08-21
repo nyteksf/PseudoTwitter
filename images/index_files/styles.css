@@ -1,0 +1,540 @@
+body {
+    background-color: #F5F8FA !important;
+}
+
+.mainTweetInputBox {
+  position: relative;
+  top: -11px;
+  background: #EEEEEE;
+  margin: 0 auto;
+  height: 58px;
+  width: 600px;
+  border: 1px solid #E1E8ED;
+}
+
+.expandedOuterBox {
+  height: 146px;
+}
+
+#newTweets-btn {
+  position: relative;
+  top: -12px; /* TOP SETTING FOR WHEN NEWTWEETSBTN IS OPEN */
+  margin: 0 auto;
+  //left: 653px;
+  left: 375px;
+  width: 600px; /* 585px is official */
+  height: 38px;
+  border: 1px solid #E1E8ED;
+  background: #F5F8FA;
+  color: #5C5C5F;
+  font-size: .9em;
+}
+
+.visitor-input-ico {
+  position: relative;
+  top: 10px;
+  left: 21px;
+  height: 32px;
+  width: 32px;
+}
+
+.visitor-input-ico-expanded {
+  top: -15px;
+}
+
+#newTweets-btn:hover {
+  background: #E1E8ED;
+}
+
+.commentBox {
+  position: relative;
+  top: 10px;
+  left: 25px;
+  height: 37px;
+  width: 525px;
+}
+
+.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #696969;
+}
+.commentBox::-moz-placeholder { /* Firefox 19+ */
+  color: #4A4A4A;
+}
+.commentBox::-ms-input-placeholder { /* IE 10+ */
+  color: #4A4A4A;
+}
+.commentBox::-moz-placeholder { /* Firefox 18- */
+  color: #4A4A4A;
+}
+
+.commentBoxExpanded {
+  height: 80px;
+}
+
+.commentBoxExpanded::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  visibility: hidden;
+}
+.commentBoxExpanded::-moz-placeholder { /* Firefox 19+ */
+  visibility: hidden;
+}
+.commentBoxExpanded::-ms-input-placeholder { /* IE 10+ */
+  visibility: hidden;
+}
+.commentBoxExpanded::-moz-placeholder { /* Firefox 18- */
+  visibility: hidden;
+}
+
+#mainTweetButtonTextGroup {
+  position: relative;
+  width: 135px;
+  height: 50px;
+  //border: 1px solid pink;
+  top: 17px;
+  left: 76.5%;
+}
+
+.charCount {
+  position: relative;
+  margin-right: 2px;
+  //top: 79px;
+  //left: -98px;
+  visibility: hidden;
+}
+
+#outerBox-btn {
+  position: relative;
+  outline: none;
+  color: #FFFFFF;
+  //top: 19px;
+  font-size: 1em;
+  height: 38px;
+  width: 100px;
+  //left: 499px;
+  background: #7A7A7C;
+  display: none;
+}
+
+#outerBox-btn:hover:enabled {
+  background: #525255;
+}
+
+#myModal {
+  position: absolute;
+  top: 20%;
+}
+
+#modalTextButtonGroup {
+  position: relative;
+  top: -6px;
+  left: 78%;
+}
+
+#modalBox-btn {
+  position: relative;
+  color: #FFFFFF;
+  font-size: 1em;
+  height: 38px;
+  width: 100px;
+  background: #7A7A7C ;
+}
+
+#modalBox-btn:hover:enabled {
+  background: #525255;
+}
+
+#modalBoxBtn-text {
+  position: relative;
+  top: -3px !important;
+}
+
+#modalCharCount {
+  position: relative;
+  top: 3px !important;
+  left: -5px;
+}
+
+#myModalLabel {
+  //color: #8F8F8F;
+  color: #979797;
+  position: relative;
+  top: -7px;
+  font-size: 1.2em !important;
+  text-align: center;
+}
+
+#modalX {
+  position: relative;
+  top: -5px;
+  font-size: 1.2em;
+}
+
+#modalTextInputBox {
+  height: 80px;
+  width: 100%;
+}
+
+.modal-header {
+  height: 39px;
+}
+
+.modal-body {
+  background: #EFEFEF;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 158px;
+}
+
+#visitor-left-background-img {
+  position: relative;
+  height: 91px;
+  width:  288px;
+}
+
+#visDisName {
+  position: relative;
+  top: -70px;
+  left: 86px;
+  font-size: 1.25em;
+}
+
+#visUName {
+  position: relative;
+  top: -82px;
+  left: 86px;
+}
+
+#tweetsVisDiv {
+  position: relative;
+  top: -85px;
+  left: 19px;
+  height: 40px;
+  width: 45px;
+  //border: 1px solid black;
+}
+
+#tweets {
+  position: relative;
+  top: 0px;
+  left: -5px;
+  font-size: .7em;
+  z-index: 99998;
+}
+
+#tweetVisOutput {
+  position: relative;
+  top: -116px;
+  left: 13px;
+  font-size: 1.55em;
+}
+
+.hashtagItems {
+  margin-bottom: 14px;
+}
+
+#visitor-left-profile-img {
+  position: relative;
+  top: -30px;
+  left: 13px;
+  height: 66px;
+  width: 66px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 3px solid #FFFFFF;
+
+}
+
+#visitorProfileInfoDiv {
+  position: absolute;
+  background: #FFFFFF;
+  top: 59px;
+  //left: 355px;
+  left: 75px;
+  width: 290px;
+  height: 195px;
+  border: 1px solid #E1E8ED;
+}
+
+.heartIconBtn {
+  position: relative;
+  top: 0;
+  left: 77px;
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 15px;
+  width: 20px;
+  padding-right: 35px;
+}
+
+#optionBtn {
+  position: relative;
+  top: 6px;
+  left: 117px;
+  background: transparent;
+  border: none !important;
+  outline: none;
+  height: 15px;
+  width: 20px;
+  padding-right: 35px;
+}
+
+#shareBtn {
+    position: relative;
+    top: 2px !important;
+    background: transparent;
+    border: none !important;
+    outline: none;
+    height: 15px;
+    width: 20px;
+    padding-right: 35px;
+    position: relative;
+    top: 1px;
+}
+
+.retweetBtn {
+  position: relative;
+  top: 0;
+  left: 45px;
+  background: transparent;
+  border: none !important;
+  outline: none;
+  height: 15px !important;
+  width: 20px !important;
+  padding-right: 35px;
+}
+
+#trendingTweetsDiv {
+  position: absolute;
+  width: 288px;
+  height: 492px;
+  top: 262px;
+  //left: 356px;
+  left: 75px;
+  border: 1px solid #E1E8ED;
+  background: #FFFFFF;
+}
+
+#trendingMainTitle {
+  position: relative;
+  font-size: 1.3em;
+  top: 13px;
+  left: 17px;
+  color: #8A8A8A;
+}
+
+.box {
+  position: relative;
+  top: -13px; /*POSITION WHEN NEWTWEETSBTN IS VISIBLE IS 1px*/
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid #E1E8ED;
+  //min-height: 600px;
+  width: 600px;
+  //padding-top: 15px;
+  padding-bottom: 0px;
+}
+
+.tweetText {
+    padding-left: 15px;
+    font-size: 1.1em;
+    color: #000000;
+}
+
+.tweetSubtext {
+    font-size: 1.05em;
+}
+
+#wordTWEET {
+  position: relative;
+  top: -3px;
+}
+
+.tweetIcon {
+  float: left;
+  padding-left: 12px;
+  height: 47px;
+  width: 58px;
+}
+
+.retweetCount {
+  position: relative;
+  top: -2px;
+  margin-left: 14px;
+}
+
+.likeCount {
+  position: relative;
+  top: -2px;
+  margin-left: 10px;
+}
+
+#tweetBtn {
+  outline: none;
+  color: #FFFFFF;
+  position: relative;
+  top: 7px;
+  height: 33px;
+  width: 90px;
+  font-size: .925em;
+  background: #7A7A7C
+}
+
+#outerBox-btn:disabled {
+  cursor: default;
+}
+
+#tweetBtn:hover {
+  background: #525255;
+}
+
+.tweetsOutput {
+  background: #FFFFFF;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: left;
+  width: 100%;
+  margin: 0 !important;
+  border-bottom: 1px solid #E1E8ED;
+  font-size: 1.2em;
+}
+
+#option-horizontal-glyphicon {
+  font-size: 1.2em;
+  position: relative;
+  top: -14px !important;
+  left: 4px !important;
+}
+
+#option-horizontal-glyphicon:hover {
+  color: #000000;
+}
+
+.tweetsOutput:hover {
+  background: #F5F8FA;
+}
+
+#share-glyphicon {
+  margin-left: 18px;
+  position: relative;
+  top: -11px;
+  left: -11px;
+  //transform: scaleX(-1);
+  //-moz-transform: scaleX(-1);
+  //-webkit-transform: scaleX(-1);
+  //-ms-transform: scaleX(-1);
+}
+
+#share-glyphicon:hover {
+  color: black;
+}
+
+.tweetBottoms {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-right: 60px;
+}
+
+#tweetFooters {
+  position: relative;
+  top: 5px;
+  left: 3px;
+  color: #AAB8C2;
+}
+
+.glyphicon-heart {
+  font-size: .9em;
+  position: relative;
+  top: -11px !important;
+}
+
+.glyphicon-heart:hover {
+  color: #E2264D;
+}
+
+.glyphicon-retweet {
+  font-size: .9em;
+  position: relative;
+  top: -12px !important;
+}
+
+.glyphicon-retweet:hover {
+  color: #19CF86;
+}
+
+#trendingTweetsContainerDiv {
+  position: relative;
+  top: 10px;
+  left: 17px;
+}
+
+#trendStrongText {
+  margin-bottom: 3px;
+}
+
+#brand {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+}
+
+input[type="text"], textarea {
+outline: none;
+box-shadow:none !important;
+border:1px solid #ccc !important;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+}
+
+#search-btn:focus,
+#search-btn:hover {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.navbar-default {
+  height: 47px;
+}
+
+#tweeting-ico { /* SEE: UPPER-RIGHT GUI */
+  font-size: 1.435em;
+}
+
+#home-ico {
+  font-size: 1.3em;
+}
+
+#search-box {
+  position: relative;
+  left: 12px;
+  font-size: .8935em;
+  background: #F5F8FA;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  top: -1px;
+}
+
+#search-btn {
+  position: relative;
+  //background: #FFFFFF;
+  background: #F5F8FA;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 40px;
+  top: -1px;
+}
+
+#home-btn-a {
+  font-size: .925em;
+  height: 49px;
+  border-bottom: 4px solid gray;
+}
+
+#search-wrapper {
+  position: absolute;
+}

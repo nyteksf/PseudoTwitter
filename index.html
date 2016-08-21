@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- Firebase OAuth & Gen. Link -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.css" />
+
+    <script src="JS/jquery.js" type="text/javascript"></script>
+    <script src="JS/data_generator.js" type="text/javascript"></script>
+    <script src="JS/moment.js" type="text/javascript"></script>
+    <script src="JS/livestamp.js" type="text/javascript"></script>
+    <script src="https://use.fontawesome.com/fca801246c.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+    <!-- BOOTSTRAP 3: -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Site Icon -->
+    <link rel="icon" href="images/favicon.png" />
+
+    <script>
+      /*jshint esversion: 6 */ //<=TURN OFF LINT ES6 ERRORS
+    </script>
+  </head>
+
+  <body>
+    <div class="navbar navbar-default">
+    <div class="container" id="container-div">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" id="brand" href="#"><img src="http://i65.tinypic.com/sdlj77.png" /></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active" id="home-btn"><a href="#" id="home-btn-a"><span id="home-ico" class="glyphicon glyphicon-home"></span> Home<span class="sr-only">(current)</span></a></li>
+          </li>
+        </ul>
+
+        <!-- Button trigger new Tweet input modal -->
+        <ul class="nav navbar-nav navbar-right">
+          <button type="submit" class="btn btn-secondary" id="tweetBtn" data-toggle="modal" data-target="#myModal"><span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="wordTWEETTop">Tweet</span></a>
+        </ul>
+        <form id="searchWrapper" class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search Twitter" id="search-box">
+          </div>
+          <button type="submit" class="btn btn-default" id="search-btn"><span class="glyphicon glyphicon-search"></span></button>
+          <img src="http://i68.tinypic.com/fx57hs.png" id="topRightVisIco" />
+        </form>
+
+      </div><!-- //.navbar-collapse -->
+    </div><!-- //.container -->
+  </div>
+
+<div id="wrapper">
+
+<div id="uiWrapperDiv">
+  <!--MAIN TWEET INPUT: DARK GRAY OUTER BOX & WHITE INNER TEXT INPUT BOX:-->
+  <div class="mainTweetInputBox">
+    <img src="http://i68.tinypic.com/fx57hs.png" class="visitor-input-ico" />
+    <textarea class="commentBox" placeholder="What's happening?"></textarea>
+    <div id="mainTweetButtonTextGroup">
+      <span class="charCount">140</span>
+      <button type="submit" class="btn btn-default" id="outerBox-btn"><span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="wordTWEET">Tweet</span></button>
+    </div>
+  </div>
+
+    <!-- Div Holding the "Update New Tweets" Button In Place-->
+    <div id="twtBtnDiv">
+      <!-- The 'New Tweet Update' Button Itself: -->
+      <input type="button" class="btn btn-default" value="No New Tweets" id="newTweets-btn">
+    </div>
+
+    <!-- Main Output Box For Showcasing Tweets -->
+    <div id="box" class="box"></div>
+
+</div> <!-- END OF #uiWrapperDiv -->
+
+
+<!-- TWITTER INTENT USAGE => FOLLOW POPUP SIMULATION -->
+<div id="hideMe">
+      <a href='https://twitter.com/intent/follow?screen_name=nyteksf' id="trigger" onclick='window.open(this.href,"popupwindow", "width=555,height=590,left=200,top=5,scrollbars,toolbar=0,resizable"); return false;' Target='_blank'>FOLLOW ME</a>
+</div>
+
+
+<div id="trendingAndVisInfoWrapper">
+
+
+  <!-- Visitor Info HUD - Upper Left Corner -->
+  <div id="visitorProfileInfoDiv">
+    <img src="http://i65.tinypic.com/21acvaw.jpg" id="visitor-left-background-img" />
+    <img src="http://i68.tinypic.com/fx57hs.png" id="visitor-left-profile-img" />
+  </p>
+  </div>
+
+<div class="clear"></div>
+
+<!-- Container of Trending Tweets (By Hashtag) -->
+<div id="trendingTweetsDiv">
+  <span id="trendingMainTitle">Trends</span>
+  <div id="trendingTweetsContainerDiv"></div>
+</div>
+
+
+</div> <!-- END OF trendingAndVisInfoWrapper div -->
+
+
+
+<!-- The "Who to follow" Div -->
+<div id="recommendedUserWrapper">
+
+<div class="recommendedUserUpperRight">
+  <div class="followDivHeader">
+    <h4>Who to follow <small>&middot;</small> <a href="#" id="refreshUpperRightDiv"><small><span class="refreshWord">Refresh</span></small></a> <small>&middot;</small> <a href="#" id="showAllBtn"><small><span class="refreshWord" id="viewAllLnk">View all</span></small></a></h4>
+  </div>
+
+  <div id="followDivBody">
+    <!-- icon, disName, tName, fButton, xButton -->
+    <div id="topFollowDivBody">
+        <div class="genProgAInfo aPerson">
+          <a href="#" id="genProgALnk"><img src="http://i68.tinypic.com/mw4aw3.gif" id="genAIcon" /></a>
+          <div id="genProgADisNameDiv"><p><a href="#" class="recomUserDivDropDownLink">Generic Programmer A</a> <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div>
+          <button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button>
+          <div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+Follow</span></button></div>
+
+        </div>
+        <!-- <div class="clear"></div> -->
+
+        <div class="genProgBInfo bPerson">
+          <a href="#" id="genProgBLnk"><img src="http://i63.tinypic.com/29glc9w.gif" id="genBIcon" /></a>
+          <div id="genProgBDisNameDiv"><p><a href="#" class="recomUserDivDropDownLink">Generic Programmer B</a> <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div>
+          <button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button>
+          <div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+Follow</span></button></div>
+        </div>
+        <!-- <div class="clear"></div> -->
+
+        <div id="followMeJoeInfo">
+          <a href="#" id="flwJoeLnk"><img src="http://i63.tinypic.com/o0426p.jpg" id="joeFlwIcon" /></a>
+          <div id="joeDisNameDiv"><p id="recommendJoeInfo"><a href="#" class="recomUserDivDropDownLink">Joe Coviello</a> <a href="#" class="twitterHndlInRecomDiv">@nyteksf</a></p></div>
+          <button type="button" class="xDataDismissJoe"><span class="xDataDismissSpan">&times;</span></button>
+          <button type="submit" class="btn btn-default joeFollowBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+Follow</span></button>
+        </div>
+        <!-- <div class="clear"></div> -->
+      </div>
+
+    <div id="xtraWrapperDiv">
+
+     <div class="genProgBInfo bPerson">
+       <a href="#" id="genProgBLnk"><img src="http://i63.tinypic.com/29glc9w.gif" id="genBIcon" /></a>
+       <div id="genProgBDisNameDiv"><p>Generic Programmer B <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div>
+       <button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button>
+       <div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+Follow</span></button></div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="genProgAInfo aPerson">
+      <a href="#" id="genProgALnk"><img src="http://i68.tinypic.com/mw4aw3.gif" id="genAIcon" /></a>
+      <div id="genProgADisNameDiv"><p>Generic Programmer A <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div>
+      <button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button>
+      <div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+    Follow</span></button></div>
+      <div class="clear"></div>
+    </div>
+
+      <div class="genProgAInfo aPerson">
+        <a href="#" id="genProgALnk"><img src="http://i68.tinypic.com/mw4aw3.gif" id="genAIcon" /></a>
+        <div id="genProgADisNameDiv"><p>Generic Programmer A <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div>
+        <button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button>
+        <div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i>
+ Follow</span></button></div>
+        <div class="clear"></div>
+     </div>
+
+  </div>
+
+  </div>
+</div> <!-- END OF recommendedUserWrapper div -->
+
+</div> <!-- END OF #wrapper div -->
+
+
+  <!-- Modal For Posting New Tweets: UPPER RIGHT CORNER BUTTON TRIGGERS IT-->
+  <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span id="modalX" aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+      Compose new Tweet
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <textarea class="form-control modalTextInputBox" placeholder="What's happening?"></textarea>
+            </div>
+            <div id="modalTextButtonGroup">
+              <span id="modalCharCount">140</span>
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="modalBox-btn">
+                <span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="modalBoxBtn-text">Tweet</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- END OF MODAL -->
+
+<script>
+  /*
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    $(document).load(function(){
+      //DO STUFF FIRST
+    });
+  } else {
+    // No user is signed in, thus:
+    // LOAD LOGIN PAGE:
+    window.open("http://127.0.0.1:8000/loginli.html", "_self")
+    //var provider = new firebase.auth.GoogleAuthProvider();
+    //firebase.auth().signInWithRedirect(provider); //REDIRECT TO LOGIN PAGE
+  }
+});
+*/
+
+  $(window).load(function() {
+    $('#xtraWrapperDiv').hide();
+  });
+
+
+  $(".joeFollowBtn").click(function() {
+      $('#trigger').click();
+      $(event.target).parent().parent().html(chgRecommended("aPerson"));
+  });
+
+
+  $('#viewAllLnk').click(function() {
+    $('.recommendedUserUpperRight').addClass('expandedRecommended');
+    $('#xtraWrapperDiv').show();
+  });
+
+
+  //MORE VISITOR HUD FROM UPPER LEFT: ie, DISPLAY VISITOR NAME AND VISITOR TWITTER HANDLE HERE:
+  $('#visitorProfileInfoDiv').append('<div id="containerDiv"><h4 id="visDisName"><strong>'+ visDisName +'</strong>');
+  $('#visitorProfileInfoDiv').append('<p id="visUName"><small>@'+ visUName +'</small></h4></div>');
+
+  let charCount = 140; //Note: if 10 or less!--, then .addClass() to make txt red colored
+  let curTweetCount;
+  let followingVisOutput = Object.keys(streams.users).length; //FOLLOWING COUNT
+  let tweetVisOutput = streams.home.length; //RUNNING TWEET COUNT FOR VISITOR DISPLAY BOX:
+
+
+  //MORE VISITOR HUD IN UPPER LEFT CORNER: ie, DISPLAY TOTAL TWEET NUMBER, FOLLOWING, AND FOLLOWER COUNTS HERE:
+  $('#visitorProfileInfoDiv').append('<div id="tweetsVisDiv"><p id="tweets">TWEETS</p><!--<div id="followingVisDiv">--><p id="following">FOLLOWING</p><p id="followers">FOLLOWERS</p>');
+  $('#visitorProfileInfoDiv').append('<p id="tweetVisOutput"><small><span id="woot">'+ tweetVisOutput +'</span></small></p><p id="followingVisCountOutput"><small><span id="flwCount">'+ followingVisOutput +'</span></small></p><p id="followersVisCountOutput"><small><span id="flwrCount">'+ 28 +'</span></small></p></div>');
+
+  //let lastStreamsHomeLength = 0; //MOVED TO data_generator.js
+
+  let nextTweetCount;
+  let countOnce = 1;
+  $('#newTweets-btn').hide();
+  let buttonHidden = true;
+
+  let $trendsDiv = $('#trendingTweetsContainerDiv');
+  let updateTrendDisplayDiv = function(){
+      $trendsDiv.html('');  //TABULA ROSA -- START W/ CLEAN SLATE
+      while (streams.trendingTweets.length > 0) {
+
+
+      //UPDATE DISPLAY BY CREATING & APPENDING DYNAMIC ELEMENTS
+      var trend = streams.trendingTweets.pop();
+      var $trend = $('<div class="trendingItemSubDivs"></div>');
+      let words = (trend[1] === 1) ? "Tweet" : "Tweets";
+      $trend.html('<h5 class="hashtagItems"><strong id="trendStrongText"><input type="button" class="trendDivLink '+trend[0].slice(1)+'" value="'+trend[0]+'"></strong><br><small><big><span id="trendSubtext"><a href="#" class="trendDivLink resetTDL '+trend[0].slice(1)+'">'+ trend[1] +" "+ words +'</a></span></big></small></h5>');
+      $trend.appendTo($trendsDiv);
+    }
+  };
+
+
+  var updateTrendingTweets = function() {
+    let resArr = [];
+    let sortable;
+
+    let streamsLength = streams.home.length;
+    for(let i = 0; i < streamsLength; i++) {
+      let cur = streams.home[i];
+      resArr.push(cur.message);
+      ///\CREATING AN ARRAY OF MESSAGES TO SCAN FOR HASHTAGS BELOW
+    }
+    //console.log(resArr); //SHOWS AN ARRAY OF MESSAGES AS STRINGS IS FORMED
+    let result = {};
+    for (let j = 0; j < resArr.length; j++) {
+      let current = resArr[j].split(" ");
+      //alert(current); //ALERTS EACH STRING AS A CUT ARRAY OF INDIVIDUAL WORDS
+      for (let x = 0; x < current.length; x++) {
+        let curWord = current[x];
+        //alert(curWord); //ALERTS EACH STRING OF WORDS VIA EACH INDIVIDUAL WORD THEREIN
+        if (curWord[0] === "#") {
+          //alert(curWord); //SELECTS/DISPLAYS ALL WORDS STARTING WITH #(HASHTAGS)
+          if(result.hasOwnProperty(curWord)){
+            result[curWord] += 1;
+          } else { //COUNT UP THE SUM OF OCCURANCES FROM 1
+            result[curWord] = 1;
+          }
+        }
+      }
+      sortable = [];
+      //console.log(result); //RETURNS AN UNSORTED ARRAY OF TWEET TRENDS AND ASSOCIATED COUNTS
+      for (let trendingTweet in result) {
+        sortable.push([trendingTweet, result[trendingTweet]]);
+        //alternate solution: ie, 'sortable += ([trendingTweet, result[trendingTweet]]);' <= IS USEFUL FOR SIMPLE OUTPUT OF AN ARRAY OF ARRAYS
+        //eg, OUTPUT SHOULD BE SIMILAR TO: ['[#woot,2]','[#linux,5]','[#javascript,1]',...]; (ie, STRINGS)
+        //String Solution: USE REGEXP WITH LOOKAHEAD TO GRAB BOTH VALUES SUCH AS WITH READING COOKIE VALUES AND THE USE OF '=' WITH SIMILAR REGEXP
+      }
+    }
+    //LIMIT/REDUCE SIZE OF ARR BEFORE SORTING IT, ET AL:
+    while (sortable.length > 10) {
+      sortable.pop();
+    }
+    //SORT BY VALUE (COUNT):
+    sortable.sort(function(a, b) { return a[1] - b[1]; });
+
+    for (let item in sortable) {
+      //WORD | COUNT : (sortable[item][0]+"  |  "+sortable[item][1]);
+      streams.trendingTweets.push(sortable[item]);
+    }
+    updateTrendDisplayDiv();
+  };
+
+  $('#twtBtnDiv').hide();
+  //WORKHORSE FUNCTION: CHECK BY INTERVAL FOR 'UPDATES'
+  function startTime() {
+  updateTrendingTweets();
+    if(buttonHidden === true || countOnce) {
+      //0) Check for new tweets
+      //1) if so, make button visible again
+      //2) reset buttonHidden boolean to false until clicked again
+      //3) list number of new tweets in button
+
+      if(lastStreamsHomeLength !== 0 || streams.home.length > 11) {
+        curTweetCount = (lastStreamsHomeLength) ? streams.home.length - lastStreamsHomeLength : streams.home.length - 11;  //0 -- FRACTAL COMPARISON TO OUTER CLOSURE
+        $('#newTweets-btn').show(); //1
+        $('#twtBtnDiv').show();
+        buttonHidden = false; //2
+
+          let testLen = (curTweetCount === 1);
+          let view = "View ";
+          let words = (testLen) ? " new Tweet" : " new Tweets";
+          if (streams.home.length - lastStreamsHomeLength === 0 || lastStreamsHomeLength == null) {
+            $('#newTweets-btn').hide();
+            $('#twtBtnDiv').hide();
+          }
+          (lastStreamsHomeLength > 0) ? $("#newTweets-btn").val(view + (streams.home.length - lastStreamsHomeLength) + words) : $("#newTweets-btn").val(view + curTweetCount + words);
+      }
+    }
+    if ((streams.home.length-11) === 0) { $("#newTweets-btn").val("No new Tweets"); }
+
+    let t = setTimeout(startTime, 1500);
+  }
+  startTime();
+
+
+  //WHEN MAIN INPUT TEXT BOX CLICKED:
+  $('.commentBox').click(function(){
+    if ($('.commentBox').val() === "") {
+      //lock up the tweet button until text has been entered
+      //add class to change to flat color to help symbolize is not working
+      $('#outerBox-btn').prop('disabled', true);
+    }
+    //EXPAND OUTER AND INNER BOXES:
+    $('.mainTweetInputBox').addClass('expandedOuterBox');
+    $('.commentBox').addClass('commentBoxExpanded');
+    $('.visitor-input-ico').addClass('visitor-input-ico-expanded');
+    $('.charCount').css('visibility','visible');
+    $('#mainTweetButtonTextGroup').show();
+  });
+
+
+  //FOR UPDATING CHARCOUNT:
+  let getInputLen = function(that){
+    let cbLen = that.val().length;
+
+    return (140 - cbLen);
+  };
+
+
+  //TALLY BACKSPACES FOR SAKE OF CHARCOUNT FUNCTION:
+  $('.commentBox').keydown(function(e){
+      let $charCount = 140 - $('.commentBox').val().length;
+      $('.charCount').text($charCount);
+      //alert($charCount+" !!!")
+      if($charCount === 139) {
+        $('#outerBox-btn').prop('disabled', true);
+      }
+
+      if($charCount > -2) {
+        $('#outerBox-btn').prop('disabled', false);
+      }
+      if($charCount >= 139) {
+        $('#outerBox-btn').prop('disabled', true);
+
+        return;
+      }
+        if ($charCount > 9 && $charCount <= 19) {
+          $('.charCount').css('color','#7C0A02'); //DARK RED
+        }
+
+        if ($charCount >= 20) {
+          $('.charCount').css('color','#333333');
+        }
+    });
+
+
+    //TEXT INPUT AND STYLE CHANGING FUNCTION:
+    $('.commentBox').bind('input propertychange', function(e) {
+      let $that = $(this);
+      let len = getInputLen($that);
+      let $cBox = $('.commentBox');
+      let $cCount = $('.charCount');
+      let $oBBtn = $('#outerBox-btn');
+
+      if (len <= 140)
+        $cCount.text(len);
+        if (len < 140) {
+          $oBBtn.prop('disabled', false);
+
+          if (len < 0) {
+            $oBBtn.prop('disabled', true);
+          }
+          else if (len >= 11 && len <= 20) {
+            $cCount.css('color','#7C0A02');
+          }
+          else if(len < 11){
+            $cCount.css('color','red');
+          }
+        }
+      });
+
+
+    $('.modalTextInputBox').bind('input propertychange', function(e) {
+      let $that = $(this);
+      let len = getInputLen($that);
+      let $mCBox = $('.modalTextInputBox');
+      let $mCCount = $('#modalCharCount');
+      let $mBBtn = $('#modalBox-btn');
+
+      if (len < 140) {
+        $mCCount.text(len);
+        $mBBtn.prop('disabled', false);
+
+        if (len < 0) {
+          $mBBtn.prop('disabled', true);
+        }
+        else if (len >= 11 && len <= 20) {
+          $mCCount.css('color','#7C0A02');
+        }
+        else if(len < 11){
+          $mCCount.css('color','red');
+        }
+
+      }
+    });
+
+
+    let shrinkTweetInputBox = function () {
+      //SHRINK/HIDE OUTER AND INNER MAIN TWEET BOX/TXTAREA
+      $('.mainTweetInputBox').removeClass('expandedOuterBox');
+      $('.commentBox').removeClass('commentBoxExpanded');
+      $('.visitor-input-ico').removeClass('visitor-input-ico-expanded');
+      $('.charCount').css('visibility','hidden');
+      $('#mainTweetButtonTextGroup').hide();
+    };
+
+
+  //NOTE: TODO: ADD QUALIFYING LOGIC TO ENSURE BOX IS OPEN BEFORE ATTEMPTING BELOW:
+  //RETURN INPUT BOX TO CLOSED/RETRACTED MODE:
+  //NOTE THIS FUNCTION IS BROKEN AS OF NOW. NOT VITAL, BUT LOOKS SHODDY IF LEFT UNFIXED.
+  $('body').click(function(e) {
+    //e.stopPropagation();
+    e.preventDefault();
+    let except = $('.commentBox');
+
+    if (charCount === 140) {
+      if(!$(e.target).not('.commentBox').is('#trendingTweetsDiv, .box, #visitorProfileInfoDiv, .navbar')) {
+	       // DO STUFF
+         //alert(1);
+      }
+    }
+  });
+
+
+  //LOAD NEW TWEETS INTO PERSONAL TWITTER STREAM:
+  $('#newTweets-btn').click(function(){
+    $('#twtBtnDiv').hide();
+    $('#newTweets-btn').hide();
+    $('.tweetsOutput').show();  //NOTE: MAY NEED TO DELETE THIS FUNCTIONALITY LATER!
+    buttonHidden = true;
+    let curLen = lastStreamsHomeLength = streams.home.length;
+    indexReset(curTweetCount);
+    $('#woot').text(curLen); //LIST # OF TWEETS IN VISITOR INFO BOX
+    updateTrendingTweets();
+    });
+
+
+  //MAIN BUTTON TO POST A TWEET
+  $('#outerBox-btn').click(function(){
+    let message = $('.commentBox').val();
+    $('.commentBox').val(" ");
+    writeTweet(message);
+    shrinkTweetInputBox();
+  });
+
+
+  //LIKE BUTTON FUNCTIONALITY
+  $(document).delegate('button.heartIconBtn', 'click', function(){
+    streams.likes++;
+    $(this).find('.likeCount').show();
+    let likeCounter = 0; //LIMIT OF ONE VISIBLE LIKE PER PERSON
+    likeCounter++;
+    $(this).find('.likeCount').text(likeCounter);
+    $(this).find('.likeCount').removeClass('hideLikeCount');
+  });
+
+
+  //OPTION BUTTON FUNCTIONALITY
+  $(document).delegate('button.optionBtn','click', function(){
+    alert("option");
+  });
+
+
+  //RETWEET BUTTON FUNCTIONALITY
+  $(document).delegate('button.retweetBtn', 'click', function(){
+    streams.retweets++;
+    $(this).find('.retweetCount').show();
+    let retweetCounter = 0; //LIMIT OF ONE Retweet PER PERSOM
+    retweetCounter++;
+    $(this).find('.retweetCount').text(retweetCounter);
+    $(this).find('.retweetCount').removeClass('hideRetweetCount');
+  });
+
+
+  //FUNCTION TO HIDE CERTAIN TWEETS BUT NOT OTHERS
+  $('body').delegate('.trendDivLink', 'click', function(event){
+      event.preventDefault();
+      let out = this.className;
+      out = out.split(" ");
+      out = out[1];
+      $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
+      $('.tweetsOutput').not("."+out).hide();
+  });
+
+
+  //FUNCTION TO HIDE CERTAIN TWEETS BUT NOT OTHERS
+  $('body').delegate('.resetTDL', 'click', function(event){
+      event.preventDefault();
+      let out = this.className;
+      out = out.split(" ");
+      out = out[2];
+      $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
+      $('.tweetsOutput').not("."+out).hide();
+  });
+
+
+  let chgRecommended = function(user) {
+    if (user === "bPerson") {
+      return '<div class="genProgAInfo aPerson"><a href="#" id="genProgALnk"><img src="http://i68.tinypic.com/mw4aw3.gif" id="genAIcon" /></a><div id="genProgADisNameDiv"><p>Generic Programmer A <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div><button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button><div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i> Follow</span></button></div><div class="clear"></div></div>';
+    } else {
+      return '<div class="genProgBInfo bPerson"><a href="#" id="genProgBLnk"><img src="http://i63.tinypic.com/29glc9w.gif" id="genBIcon" /></a><div id="genProgBDisNameDiv"><p>Generic Programmer B <a href="#" class="twitterHndlInRecomDiv">@g...</a></p></div><button type="button" class="xDataDismiss"><span class="xDataDismissSpan">&times;</span></button><div class="buttonDiv"><button type="submit" class="btn btn-default followBtn"><span class="followBtnTxt"><i class="fa fa-user-plus" aria-hidden="true"></i> Follow</span></button></div><div class="clear"></div></div>';
+    }
+  };
+
+
+  let extrapUType = function(person){
+    let res;
+    let $that = person;
+    $that = $that.split(" ")[1];
+
+    if ($that === "bPerson") {
+      res = "bPerson";
+    } else {
+      res = "aPerson";
+    }
+
+    return res;
+  };
+
+
+  //TODO: FIGURE OUT LOCATION OF FOLLOW AND SET IT UP TO REPLACE OLD USER ON CLICK THEREBY
+
+  //FOLLOW BUTTON: REPLACE OLD USER FUNCTION
+  $('div.recommendedUserUpperRight').delegate('.followBtn', 'click', function(){
+
+     $this = $(event.target);
+     //console.log($this.find('.followBtn'));
+     $this.removeClass("btn-default");
+     $this.addClass("btn-primary");
+     $this.find('.followBtn').css('background','blue');
+     $this.css('color','#FFFFFF');
+     $this.text("Following");
+   //TODO: ADD HOVER FX OF RED BACKGROUND FOR "UNFOLLOW"
+   //TODO: ADDCLASS FOR COLOR CHANGE:
+
+     setTimeout(function(){
+      let $that = $this.parent().parent().parent()[0].className.split(" ")[1]; //GRAB PARENT DIV CLASSNAME
+      let $uType = $that;
+      $this.parent().parent().parent().html(chgRecommended($uType));
+      $('#xtraWrapperDiv').show();
+    }, 1600);
+
+    //OPEN THE "RECOMMENDED..." BOX
+    setTimeout(function(){
+      $('.recommendedUserUpperRight').addClass('expandedRecommended');
+    },1650);
+  });
+
+  //CHANGE OLD USER WHEN X IS CLICKED IN RECOMMENDED BOX
+  $('div.recommendedUserUpperRight').delegate('.xDataDismiss', 'click', function(){
+    let $that = $(this).closest('div')[0].className;
+    let uType = extrapUType($that);
+    $(event.target).parent().parent().html(chgRecommended(uType));
+  });
+
+ //SAME AS ABOVE, ONLY CASE SPECIFICALLY FOR MY OWN FOLLOW ME BUTTON FUNCTIONALITY
+  $('div.recommendedUserUpperRight').delegate('.xDataDismissJoe', 'click', function(){
+    alert(":(");
+  });
+  </script>
+
+  </body>
+
+</html>
