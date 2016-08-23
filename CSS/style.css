@@ -92,7 +92,7 @@ input.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   left: 25px;
   color: #696969;
   position: relative;
-  top: 2px;
+  top: 3px;
 }
 input.commentBox::-moz-placeholder { /* Firefox 19+ */
   left: 25px;
@@ -105,22 +105,22 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 
 .commentBox::-webkit-input-placeholder {
   position: relative;
-  top: 2px;
+  top: 3px;
 }
 
 .commentBox:-moz-placeholder { /* Firefox 18- */
   position: relative;
-  top: 2px;  
+  top: 3px;
 }
 
 .commentBox::-moz-placeholder {  /* Firefox 19+ */
   position: relative;
-  top: 2px;  
+  top: 3px;
 }
 
 .commentBox:-ms-input-placeholder {  
   position: relative;
-  top: 2px;  
+  top: 3px;
 }
 
 .commentBoxExpanded {
