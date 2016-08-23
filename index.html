@@ -200,41 +200,6 @@ Follow</span></button></div>
 </div> <!-- END OF #wrapper div -->
 
 
-  <!-- Modal For Posting New Tweets: UPPER RIGHT CORNER BUTTON TRIGGERS IT-->
-  <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span id="modalX" aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">
-      Compose new Tweet
-          </h4>
-        </div>
-
-        <!-- Modal Body -->
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <textarea class="form-control modalTextInputBox" placeholder="What's happening?"></textarea>
-            </div>
-            <div id="modalTextButtonGroup">
-              <span id="modalCharCount">140</span>
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="modalBox-btn">
-                <span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="modalBoxBtn-text">Tweet</span>
-              </button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div> <!-- END OF MODAL -->
-
 <script>
   /*
   firebase.auth().onAuthStateChanged(function(user) {
@@ -659,6 +624,40 @@ Follow</span></button></div>
   });
   </script>
 
-  </body>
+  <!-- Modal For Posting New Tweets: UPPER RIGHT CORNER BUTTON TRIGGERS IT-->
+  <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
 
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span id="modalX" aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+      Compose new Tweet
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <textarea class="form-control modalTextInputBox" placeholder="What's happening?"></textarea>
+            </div>
+            <div id="modalTextButtonGroup">
+              <span id="modalCharCount">140</span>
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="modalBox-btn">
+                <span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="modalBoxBtn-text">Tweet</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- END OF MODAL -->
+  
+</body>
 </html>
