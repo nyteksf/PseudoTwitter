@@ -105,22 +105,22 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 
 .commentBox::-webkit-input-placeholder {
   position: relative;
-  top: 9px;
+  top: 11px;
 }
 
 .commentBox:-moz-placeholder { /* Firefox 18- */
   position: relative;
-  top: 9px;  
+  top: 11px;  
 }
 
 .commentBox::-moz-placeholder {  /* Firefox 19+ */
   position: relative;
-  top: 9px;  
+  top: 11px;  
 }
 
 .commentBox:-ms-input-placeholder {  
   position: relative;
-  top: 9px;  
+  top: 11px;  
 }
 
 .commentBoxExpanded {
