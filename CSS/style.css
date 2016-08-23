@@ -87,31 +87,12 @@ textarea {
   z-index: 100;
 }
 
-.commentBox > ::-webkit-input-placeholder {
-  position: relative;
-  top: 7px;
-}
-
-.commentBox > :-moz-placeholder { /* Firefox 18- */
-  position: relative;
-  top: 7px;  
-}
-
-.commentBox > ::-moz-placeholder {  /* Firefox 19+ */
-  position: relative;
-  top: 7px;  
-}
-
-.commentBox > :-ms-input-placeholder {  
-  position: relative;
-  top: 7px;  
-}
 
 input.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   left: 25px;
   color: #696969;
   position: relative;
-  top: 7px;
+  top: 9px;
 }
 input.commentBox::-moz-placeholder { /* Firefox 19+ */
   left: 25px;
@@ -121,6 +102,27 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   left: 25px;
   color: #4A4A4A;
 }
+
+.commentBox::-webkit-input-placeholder {
+  position: relative;
+  top: 9px;
+}
+
+.commentBox:-moz-placeholder { /* Firefox 18- */
+  position: relative;
+  top: 9px;  
+}
+
+.commentBox::-moz-placeholder {  /* Firefox 19+ */
+  position: relative;
+  top: 9px;  
+}
+
+.commentBox:-ms-input-placeholder {  
+  position: relative;
+  top: 9px;  
+}
+
 .commentBoxExpanded {
   height: 80px;
 }
