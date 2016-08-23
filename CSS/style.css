@@ -59,7 +59,7 @@ textarea {
 .visitor-input-ico {
   position: absolute;
   top: 10px;
-  left: 21px;
+  left: 23px;
   height: 32px;
   width: 32px;
 }
@@ -264,7 +264,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   height: 38px;
   width: 100px;
   background: #7A7A7C;
-  //display: none;
+  left: 10px;
 }
 
 #outerBox-btn:hover:enabled {
