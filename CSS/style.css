@@ -261,7 +261,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   background: #525255;
 }
 
-#myModal > button.close {
+span#modalX {
   //position: relative;
   //top: 20%;
   z-index: 9999999999;
