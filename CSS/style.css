@@ -262,9 +262,9 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 }
 
 #myModal {
-  position: absolute;
-  top: 20%;
-  z-index: 9999999;
+  //position: absolute;
+  //top: 20%;
+  z-index: 9999999999;
 }
 
 #modalTextButtonGroup {
