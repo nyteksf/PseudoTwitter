@@ -232,10 +232,20 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   opacity: 0;
 }
 
+
+/*
 .charCount {
   position: relative;
   margin-right: 2px;
   visibility: hidden;
+}
+*/
+
+.charCount {
+    position: absolute;
+    margin-right: 2px;
+    left: -34px;
+    top: 10px;
 }
 
 .followDivHeader {
