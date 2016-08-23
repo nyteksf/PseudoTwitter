@@ -264,7 +264,8 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 span#modalX {
   //position: relative;
   //top: 20%;
-  z-index: 9999999999;
+  z-index: 0;
+  pointer-events: none;
 }
 
 body.modal-open, 
@@ -309,6 +310,7 @@ div.modal-backdrop {
   font-size: 1.2em !important;
   text-align: center;
   z-index: 0;
+  pointer-events: none;
 }
 
 #modalX {
