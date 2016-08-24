@@ -8,7 +8,8 @@ textarea {
 
 #wrapper {
   position: relative;
-  left: -70px;
+  left: -110px;
+  //left: 70px;
   margin: 0 auto;
   width: 1350px;
   height: 100%;
@@ -50,6 +51,7 @@ textarea {
   width: 600px;
   border: 1px solid #E1E8ED;
   z-index: 100;
+  left: -2px;
 }
 
 .expandedOuterBox {
@@ -178,7 +180,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 .recommendedUserUpperRight {
   position: relative;
   top: -12px;
-  left: -3px;
+  left: -6px;
   height: 223px;
   width: 288px;
   border: 1px solid #E1E8ED;
@@ -206,6 +208,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   width: 100%;
   height: 100%;
   z-index: 100;
+  left: -1px;
 }
 
 #twtBtnDiv {
@@ -565,6 +568,7 @@ div.modal-backdrop {
   border: 1px solid #E1E8ED;
   width: 600px;
   padding-bottom: 0px;
+  left: -2px;
 }
 
 .tweetText {
