@@ -414,12 +414,12 @@ Follow</span></button></div>
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
 
-      if (len <= 140)
-        $cCount.text(len);
-        if (len < 140) {
+      if ($cCount <= 140)
+        $cCount.text($cCount);
+        if ($cCount < 140) {
           $oBBtn.prop('disabled', false);
 
-          if (len < 0) {
+          if ($cCount < 0) {
             $oBBtn.prop('disabled', true);
           }
           else if ($cCount >= 11 && $cCount <= 20) {
@@ -427,7 +427,7 @@ Follow</span></button></div>
             alert(len);
             //alert();
           }
-          else if(len < 11){
+          else if($cCount < 11){
             $cCount.css('color','red');
           }
         }
