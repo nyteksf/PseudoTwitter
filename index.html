@@ -395,7 +395,7 @@ Follow</span></button></div>
         $('#outerBox-btn').prop('disabled', true);
 
         return;
-      } /*
+      }
         if ($charCount > 9 && $charCount <= 19) {
 	  $('.charCount').css('color','red'); //DARK RED
         }
@@ -403,12 +403,11 @@ Follow</span></button></div>
         if ($charCount >= 20) {
           $('.charCount').css('color','#333333');
         }
-        */
     });
     
 
 
-    //TEXT INPUT AND STYLE CHANGING FUNCTION:
+ // TEXT INPUT AND STYLE CHANGING FUNCTION:
     $('.commentBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
@@ -416,8 +415,9 @@ Follow</span></button></div>
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
 
-      if (len <= 140)
+      if (len <= 140) {
         $cCount.text(len);
+        
         if (len < 140) {
           $oBBtn.prop('disabled', false);
 
