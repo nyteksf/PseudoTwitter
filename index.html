@@ -239,7 +239,7 @@ Follow</span></button></div>
   $('#visitorProfileInfoDiv').append('<div id="containerDiv"><h4 id="visDisName"><strong>'+ visDisName +'</strong>');
   $('#visitorProfileInfoDiv').append('<p id="visUName"><small>@'+ visUName +'</small></h4></div>');
 
-  let charCount = 140; //Note: if 10 or less!--, then .addClass() to make txt red colored
+  let charCount = 140;
   let curTweetCount;
   let followingVisOutput = Object.keys(streams.users).length; //FOLLOWING COUNT
   let tweetVisOutput = streams.home.length; //RUNNING TWEET COUNT FOR VISITOR DISPLAY BOX:
@@ -383,7 +383,7 @@ Follow</span></button></div>
   $('.commentBox').keydown(function(e){
       let $charCount = 140 - $('.commentBox').val().length;
       $('.charCount').text($charCount);
-      //alert($charCount+" !!!")
+      
       if($charCount === 139) {
         $('#outerBox-btn').prop('disabled', true);
       }
@@ -397,7 +397,7 @@ Follow</span></button></div>
         return;
       }
         if ($charCount > 9 && $charCount <= 19) {
-          $('.charCount').css('color','#7C0A02'); //DARK RED
+          $('.charCount').css('color','darkred'); //DARK RED
         }
 
         if ($charCount >= 20) {
@@ -595,9 +595,7 @@ Follow</span></button></div>
      $this.find('.followBtn').css('background','blue');
      $this.css('color','#FFFFFF');
      $this.text("Following");
-   //TODO: ADD HOVER FX OF RED BACKGROUND FOR "UNFOLLOW"
-   //TODO: ADDCLASS FOR COLOR CHANGE:
-
+   
      setTimeout(function(){
       let $that = $this.parent().parent().parent()[0].className.split(" ")[1]; //GRAB PARENT DIV CLASSNAME
       let $uType = $that;
