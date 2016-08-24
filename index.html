@@ -387,7 +387,6 @@ Follow</span></button></div>
       if($charCount === 139) {
         $('#outerBox-btn').prop('disabled', true);
       }
-
       if($charCount > -2) {
         $('#outerBox-btn').prop('disabled', false);
       }
@@ -397,17 +396,15 @@ Follow</span></button></div>
         return;
       }
         if ($charCount > 9 && $charCount <= 19) {
-	  $('.charCount').css('color','red'); //DARK RED
+          $('.charCount').css('color','#7C0A02'); //DARK RED
         }
-
         if ($charCount >= 20) {
           $('.charCount').css('color','#333333');
         }
     });
-    
 
 
- // TEXT INPUT AND STYLE CHANGING FUNCTION:
+    //TEXT INPUT AND STYLE CHANGING FUNCTION:
     $('.commentBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
@@ -415,9 +412,8 @@ Follow</span></button></div>
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
 
-      if (len <= 140) {
+      if (len <= 140)
         $cCount.text(len);
-        
         if (len < 140) {
           $oBBtn.prop('disabled', false);
 
@@ -425,15 +421,13 @@ Follow</span></button></div>
             $oBBtn.prop('disabled', true);
           }
           else if (len >= 11 && len <= 20) {
-            $cCount.css('color','white');
-            alert(len);
+            $cCount.css('color','#7C0A02');
           }
           else if(len < 11){
             $cCount.css('color','red');
           }
         }
-      }
-    });
+      });
 
 
     $('.modalTextInputBox').bind('input propertychange', function(e) {
@@ -451,11 +445,12 @@ Follow</span></button></div>
           $mBBtn.prop('disabled', true);
         }
         else if (len >= 11 && len <= 20) {
-          $mCCount.css('color','blue');
+          $mCCount.css('color','#7C0A02');
         }
         else if(len < 11){
           $mCCount.css('color','red');
         }
+
       }
     });
 
