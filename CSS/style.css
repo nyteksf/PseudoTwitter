@@ -87,6 +87,7 @@ textarea {
   height: 37px;
   width: 525px;
   z-index: 100;
+  padding-left: 9px;
   overflow: hidden;
 }
 
