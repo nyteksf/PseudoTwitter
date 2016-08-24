@@ -371,15 +371,14 @@ Follow</span></button></div>
   });
 
 
-  //FOR UPDATING CHARCOUNT:
+//FOR UPDATING CHARCOUNT:
   let getInputLen = function(that){
-    let cbLen = that.val().length;
+    let cbLen = that.text().length;
 
     return (140 - cbLen);
   };
 
 
-/*
   //TALLY BACKSPACES FOR SAKE OF CHARCOUNT FUNCTION:
   $('.commentBox').keydown(function(e){
       let $charCount = 140 - $('.commentBox').val().length;
@@ -396,7 +395,7 @@ Follow</span></button></div>
         $('#outerBox-btn').prop('disabled', true);
 
         return;
-      } 
+      } /*
         if ($charCount > 9 && $charCount <= 19) {
 	  $('.charCount').css('color','red'); //DARK RED
         }
@@ -404,8 +403,9 @@ Follow</span></button></div>
         if ($charCount >= 20) {
           $('.charCount').css('color','#333333');
         }
+        */
     });
-    */
+    
 
 
     //TEXT INPUT AND STYLE CHANGING FUNCTION:
@@ -416,20 +416,19 @@ Follow</span></button></div>
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
 
-      if ($cCount <= 140)
-        $cCount.text($cCount);
-        if ($cCount < 140) {
+      if (len <= 140)
+        $cCount.text(len);
+        if (len < 140) {
           $oBBtn.prop('disabled', false);
 
-          if ($cCount < 0) {
+          if (len < 0) {
             $oBBtn.prop('disabled', true);
           }
-          else if ($cCount >= 11 && $cCount <= 20) {
-            $cCount.css('color','#8b0000');
+          else if (len >= 11 && len <= 20) {
+            $cCount.css('color','white');
             alert(len);
-            //alert();
           }
-          else if($cCount < 11){
+          else if(len < 11){
             $cCount.css('color','red');
           }
         }
@@ -451,12 +450,11 @@ Follow</span></button></div>
           $mBBtn.prop('disabled', true);
         }
         else if (len >= 11 && len <= 20) {
-          $mCCount.css('color','#8b0000');
+          $mCCount.css('color','blue');
         }
         else if(len < 11){
           $mCCount.css('color','red');
         }
-
       }
     });
 
