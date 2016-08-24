@@ -89,17 +89,18 @@ textarea {
   z-index: 100;
 }
 
-
 input.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   left: 50px !important;
   color: #696969;
   position: relative;
   top: 3px;
 }
+
 input.commentBox::-moz-placeholder { /* Firefox 19+ */
   left: 50px !important;
   color: #4A4A4A;
 }
+
 input.commentBox::-ms-input-placeholder { /* IE 10+ */
   left: 50px !important;
   color: #4A4A4A;
