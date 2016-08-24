@@ -87,6 +87,7 @@ textarea {
   height: 37px;
   width: 525px;
   z-index: 100;
+  scroll-y: hidden;
 }
 
 input.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
