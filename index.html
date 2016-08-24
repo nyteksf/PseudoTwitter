@@ -422,10 +422,10 @@ Follow</span></button></div>
           if (len < 0) {
             $oBBtn.prop('disabled', true);
           }
-          else if (len >= 11 && len <= 20) {
+          else if ($cCount >= 11 && $cCount <= 20) {
             $cCount.css('color','#8b0000');
             alert(len);
-            alert($cCount);
+            //alert();
           }
           else if(len < 11){
             $cCount.css('color','red');
