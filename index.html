@@ -11,7 +11,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.css" />
 
     <script src="JS/jquery.js" type="text/javascript"></script>
-    <script src="https://cdn.rawgit.com/jevin/Autogrow-Textarea/master/jquery.autogrowtextarea.min.js" type="text/javascript"></script>
+    <script src="JS/autosize.js" type="text/javascript"></script>
     <script src="JS/data_generator.js" type="text/javascript"></script>
     <script src="JS/moment.js" type="text/javascript"></script>
     <script src="JS/livestamp.js" type="text/javascript"></script>
@@ -656,6 +656,6 @@ Follow</span></button></div>
     </div>
   </div> <!-- END OF MODAL -->
   
-$(.commentBox).autoGrow();
+  autosize($('.commentBox'));
 </body>
 </html>
