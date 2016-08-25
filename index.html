@@ -374,13 +374,13 @@ Follow</span></button></div>
 //FOR UPDATING CHARCOUNT:
   let getInputLen = function(that){
     let cbLen = that.text().length;
-		alert(cbLen);
+
     return (140 - cbLen);
   };
 
 
 //TALLY BACKSPACES FOR SAKE OF CHARCOUNT FUNCTION:
-  $('.commentBox').keydown(function(e){
+  $('.commentBox').keydown(function(e) {
       let $charCount = 140 - $('.commentBox').val().length;
       $('.charCount').text($charCount);
       //alert($charCount+" !!!")
