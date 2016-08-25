@@ -430,11 +430,11 @@ Follow</span></button></div>
         }
       });
 
-    $('textarea.form-control.modalTextInputBox').keyup(function() {
+    $('.modalTextInputBox').keyup(function() {
     	alert(1);
     });
     
-    $('textarea.form-control.modalTextInputBox').bind('input propertychange', function(e) {
+    $('.modalTextInputBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
       let $mCBox = $('.modalTextInputBox');
