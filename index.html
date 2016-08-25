@@ -383,10 +383,11 @@ Follow</span></button></div>
   $('.commentBox').keydown(function(e){
       let $charCount = 140 - $('.commentBox').val().length;
       $('.charCount').text($charCount);
-      
+      //alert($charCount+" !!!")
       if($charCount === 139) {
         $('#outerBox-btn').prop('disabled', true);
       }
+
       if($charCount > -2) {
         $('#outerBox-btn').prop('disabled', false);
       }
@@ -398,6 +399,7 @@ Follow</span></button></div>
         if ($charCount > 9 && $charCount <= 19) {
           $('.charCount').css('color','#7C0A02'); //DARK RED
         }
+
         if ($charCount >= 20) {
           $('.charCount').css('color','#333333');
         }
@@ -414,7 +416,6 @@ Follow</span></button></div>
 
       if (len <= 140)
         $cCount.text(len);
-        console.log($cCount.text(len[0][0]));
         if (len < 140) {
           $oBBtn.prop('disabled', false);
 
