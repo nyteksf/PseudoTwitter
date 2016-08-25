@@ -431,12 +431,14 @@ Follow</span></button></div>
       });
   
     
-    $('body').on('input propertychange','.modalTextInputBox',function() {
+    $('body').on('input propertychange','.modalTextInputBox',function(e) {
       let $that = $(this);
       let len = getInputLen($that);
       let $mCBox = $('.modalTextInputBox');
       let $mCCount = $('#modalCharCount');
       let $mBBtn = $('#modalBox-btn');
+      
+      alert(e.keyCode);
 
 
       if (len < 140) {
