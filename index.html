@@ -409,6 +409,7 @@ Follow</span></button></div>
     //TEXT INPUT AND STYLE CHANGING FUNCTION:
     $('.commentBox').bind('input propertychange', function(e) {
       let $that = $(this);
+      console.log($that)
       let len = getInputLen($that);
       alert(len);
       let $cBox = $('.commentBox');
