@@ -410,6 +410,7 @@ Follow</span></button></div>
     $('.commentBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
+      alert(len);
       let $cBox = $('.commentBox');
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
