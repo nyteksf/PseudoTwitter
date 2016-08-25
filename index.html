@@ -432,10 +432,31 @@ Follow</span></button></div>
   
     
     $('body').on('input propertychange','.modalTextInputBox',function() {
-    	alert(123);
+      let $that = $(this);
+      let len = getInputLen($that);
+      let $mCBox = $('.modalTextInputBox');
+      let $mCCount = $('#modalCharCount');
+      let $mBBtn = $('#modalBox-btn');
+
+
+      if (len < 140) {
+        $mCCount.text(len);
+        $mBBtn.prop('disabled', false);
+
+        if (len < 0) {
+          $mBBtn.prop('disabled', true);
+        }
+        else if (len >= 11 && len <= 20) {
+          $mCCount.css('color','#7C0A02');
+        }
+        else if(len < 11){
+          $mCCount.css('color','red');
+        }
+
+      }
     });
  
-    
+    /* 
     $('.modalTextInputBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
@@ -460,7 +481,7 @@ Follow</span></button></div>
 
       }
     });
-
+*/
 
     let shrinkTweetInputBox = function () {
       //SHRINK/HIDE OUTER AND INNER MAIN TWEET BOX/TXTAREA
