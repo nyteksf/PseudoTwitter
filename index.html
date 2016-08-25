@@ -434,7 +434,7 @@ Follow</span></button></div>
     $('body').on('keyup','.modalTextInputBox',function(e) {
     	if(e.keyCode === 46 || e.keyCode === 8) {
     	  if($(this)[0].value.length === 0) {
-    	    console.log($(this).parent()[0]); //find('.modalCharCount').
+    	    console.log($(this).parent()[0].find('.modalCharCount');
     	  }
     	}
     });
