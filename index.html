@@ -383,7 +383,6 @@ Follow</span></button></div>
   $('.commentBox').keydown(function(e){
       let $charCount = 140 - $('.commentBox').val().length;
       $('.charCount').text($charCount);
-      alert($('.charCount').text($charCount))
       
       if($charCount === 139) {
         $('#outerBox-btn').prop('disabled', true);
@@ -415,6 +414,7 @@ Follow</span></button></div>
 
       if (len <= 140)
         $cCount.text(len);
+        alert($cCount.text(len));
         if (len < 140) {
           $oBBtn.prop('disabled', false);
 
