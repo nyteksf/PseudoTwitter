@@ -460,6 +460,7 @@ $(".commentBox").keypress(function(e) {
 });
 
 
+
 //RETURN INPUT BOX TO CLOSED/RETRACTED MODE:
 $('body, #trendingTweetsDiv, #visitorProfileInfoDiv, .navbar').click(function(e){
   if(e.target !== this) {
