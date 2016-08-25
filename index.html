@@ -433,9 +433,8 @@ Follow</span></button></div>
     
     $('body').on('keyup','.modalTextInputBox',function(e) {
     	if(e.keyCode === 46 || e.keyCode === 8) {
-    		//if length is 0, then reset to 140
     	  if($(this)[0].value.length === 0) {
-    	    alert("123")
+    	    $('.modalTextInputBox').val("140");
     	  }
     	}
     });
