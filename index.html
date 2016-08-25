@@ -372,7 +372,7 @@ Follow</span></button></div>
 
 
 //FOR UPDATING CHARCOUNT:
-  let getInputLen = function(that){
+  let getInputLen = function(that) {
     let cbLen = that[0].value.length;
     return (140 - cbLen);
   };
@@ -409,6 +409,7 @@ Follow</span></button></div>
     $('.commentBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
+      alert(len);
       let $cBox = $('.commentBox');
       let $cCount = $('.charCount');
       let $oBBtn = $('#outerBox-btn');
