@@ -431,14 +431,15 @@ Follow</span></button></div>
       });
 
 
-    $('.modalTextInputBox').bind('input propertychange', function(e) {
+    $('textarea.form-control.modalTextInputBox').bind('input propertychange', function(e) {
+	      alert(1);
+	      
       let $that = $(this);
       let len = getInputLen($that);
       let $mCBox = $('.modalTextInputBox');
       let $mCCount = $('#modalCharCount');
       let $mBBtn = $('#modalBox-btn');
-      
-      alert(1);
+
 
       if (len < 140) {
         $mCCount.text(len);
