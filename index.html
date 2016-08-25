@@ -373,9 +373,8 @@ Follow</span></button></div>
 
 //FOR UPDATING CHARCOUNT:
   let getInputLen = function(that){
-    let cbLen = that.text().length;
-	console.log(that[0].value.length);
-    return (140 - 5);//cbLen);
+    let cbLen = that[0].value.length;
+    return (140 - cbLen);
   };
 
 
