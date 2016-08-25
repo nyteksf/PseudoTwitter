@@ -431,6 +431,11 @@ Follow</span></button></div>
       });
   
     
+    $('body').on('keyup','.modalTextInputBox',function(e) {
+    	alert(e.keyCode);
+    });
+    
+    
     $('body').on('input propertychange','.modalTextInputBox',function(e) {
       let $that = $(this);
       let len = getInputLen($that);
@@ -438,9 +443,7 @@ Follow</span></button></div>
       let $mCCount = $('#modalCharCount');
       let $mBBtn = $('#modalBox-btn');
       
-      alert(e.keyCode);
-
-
+      
       if (len < 140) {
         $mCCount.text(len);
         $mBBtn.prop('disabled', false);
