@@ -430,7 +430,10 @@ Follow</span></button></div>
         }
       });
 
-
+    $(body).delegate('textarea.form-control.modalTextInputBox','input propertychange',function(){
+    	alert(1);
+    });
+    
     $('textarea.form-control.modalTextInputBox').bind('input propertychange', function(e) {
 	      alert(1);
 	      
