@@ -432,10 +432,9 @@ Follow</span></button></div>
   
     
     $('body').on('keyup','.modalTextInputBox',function(e) {
-    	let $mCCount = $('.modalCharCount');
     	if(e.keyCode === 46 || e.keyCode === 8) {
     	  if($(this)[0].value.length === 0) {
-    	    $mCCount.text("140");
+    	    console.log($(this).parent()); //find('.modalCharCount').
     	  }
     	}
     });
