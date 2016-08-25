@@ -375,7 +375,9 @@ Follow</span></button></div>
   let getInputLen = function(that){
     let cbLen = that.text().length;
 	console.log(that);
-	console.log(that.innerHTML())
+	console.log(that[0].value)
+	console.log(that[0].value());
+	console.log(that.val());
     return (140 - 5);//cbLen);
   };
 
