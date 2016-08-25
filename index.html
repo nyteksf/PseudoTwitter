@@ -432,7 +432,9 @@ Follow</span></button></div>
   
     
     $('body').on('keyup','.modalTextInputBox',function(e) {
-    	alert(e.keyCode);
+    	if(e.keyCode === 46 || e.keyCode === 8) {
+    	  alert(5);
+    	}
     });
     
     
