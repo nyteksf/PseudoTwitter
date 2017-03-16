@@ -94,7 +94,7 @@
 </div> <!-- END OF #uiWrapperDiv -->
 
 
-<!-- TWITTER INTENT USAGE => FOLLOW POPUP SIMULATION -->
+<!-- 'TWITTER INTENT' USAGE => FOLLOWS 'USER ADD' -->
 <div id="hideMe">
       <a href='https://twitter.com/intent/follow?screen_name=nyteksf' id="trigger" onclick='window.open(this.href,"popupwindow", "width=555,height=590,left=200,top=5,scrollbars,toolbar=0,resizable"); return false;' Target='_blank'>FOLLOW ME</a>
 </div>
@@ -200,6 +200,41 @@ Follow</span></button></div>
 </div> <!-- END OF #wrapper div -->
 
 
+  <!-- Modal For Posting New Tweets: UPPER RIGHT CORNER BUTTON TRIGGERS IT-->
+  <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span id="modalX" aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+      Compose new Tweet
+          </h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <textarea class="form-control modalTextInputBox" placeholder="What's happening?"></textarea>
+            </div>
+            <div id="modalTextButtonGroup">
+              <span id="modalCharCount">140</span>
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="modalBox-btn">
+                <span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="modalBoxBtn-text">Tweet</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- END OF MODAL -->
+
 <script>
   /*
   firebase.auth().onAuthStateChanged(function(user) {
@@ -239,7 +274,7 @@ Follow</span></button></div>
   $('#visitorProfileInfoDiv').append('<div id="containerDiv"><h4 id="visDisName"><strong>'+ visDisName +'</strong>');
   $('#visitorProfileInfoDiv').append('<p id="visUName"><small>@'+ visUName +'</small></h4></div>');
 
-  let charCount = 140;
+  let charCount = 140; //Note: if 10 or less!--, then .addClass() to make txt red colored
   let curTweetCount;
   let followingVisOutput = Object.keys(streams.users).length; //FOLLOWING COUNT
   let tweetVisOutput = streams.home.length; //RUNNING TWEET COUNT FOR VISITOR DISPLAY BOX:
@@ -371,15 +406,16 @@ Follow</span></button></div>
   });
 
 
-//FOR UPDATING CHARCOUNT:
-  let getInputLen = function(that) {
-    let cbLen = that[0].value.length;
+  //FOR UPDATING CHARCOUNT:
+  let getInputLen = function(that){
+    let cbLen = that.val().length;
+
     return (140 - cbLen);
   };
 
 
-//TALLY BACKSPACES FOR SAKE OF CHARCOUNT FUNCTION:
-  $('.commentBox').keydown(function(e) {
+  //TALLY BACKSPACES FOR SAKE OF CHARCOUNT FUNCTION:
+  $('.commentBox').keydown(function(e){
       let $charCount = 140 - $('.commentBox').val().length;
       $('.charCount').text($charCount);
       //alert($charCount+" !!!")
@@ -429,43 +465,8 @@ Follow</span></button></div>
           }
         }
       });
-  
-    
-    $('body').on('keyup','.modalTextInputBox',function(e) {
-    	if(e.keyCode === 46 || e.keyCode === 8) {
-    	  if($(this)[0].value.length === 0) {
-    	    console.log($(this).parent()[0].find('.modalCharCount').text("140"));
-    	  }
-    	}
-    });
-    
-    
-    $('body').on('input propertychange','.modalTextInputBox',function(e) {
-      let $that = $(this);
-      let len = getInputLen($that);
-      let $mCBox = $('.modalTextInputBox');
-      let $mCCount = $('#modalCharCount');
-      let $mBBtn = $('#modalBox-btn');
-      
-      
-      if (len < 140) {
-        $mCCount.text(len);
-        $mBBtn.prop('disabled', false);
 
-        if (len < 0) {
-          $mBBtn.prop('disabled', true);
-        }
-        else if (len >= 11 && len <= 20) {
-          $mCCount.css('color','#7C0A02');
-        }
-        else if(len < 11){
-          $mCCount.css('color','red');
-        }
 
-      }
-    });
- 
-    /* 
     $('.modalTextInputBox').bind('input propertychange', function(e) {
       let $that = $(this);
       let len = getInputLen($that);
@@ -473,7 +474,6 @@ Follow</span></button></div>
       let $mCCount = $('#modalCharCount');
       let $mBBtn = $('#modalBox-btn');
 
-
       if (len < 140) {
         $mCCount.text(len);
         $mBBtn.prop('disabled', false);
@@ -490,7 +490,7 @@ Follow</span></button></div>
 
       }
     });
-*/
+
 
     let shrinkTweetInputBox = function () {
       //SHRINK/HIDE OUTER AND INNER MAIN TWEET BOX/TXTAREA
@@ -572,12 +572,9 @@ Follow</span></button></div>
   //FUNCTION TO HIDE CERTAIN TWEETS BUT NOT OTHERS
   $('body').delegate('.trendDivLink', 'click', function(event){
       event.preventDefault();
-      event.stopPropagation();
       let out = this.className;
       out = out.split(" ");
       out = out[1];
-      $('#newTweets-btn').click();
-      $('#newTweets-btn').hide();
       $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
       $('.tweetsOutput').not("."+out).hide();
   });
@@ -630,7 +627,9 @@ Follow</span></button></div>
      $this.find('.followBtn').css('background','blue');
      $this.css('color','#FFFFFF');
      $this.text("Following");
-   
+   //TODO: ADD HOVER FX OF RED BACKGROUND FOR "UNFOLLOW"
+   //TODO: ADDCLASS FOR COLOR CHANGE:
+
      setTimeout(function(){
       let $that = $this.parent().parent().parent()[0].className.split(" ")[1]; //GRAB PARENT DIV CLASSNAME
       let $uType = $that;
@@ -657,40 +656,6 @@ Follow</span></button></div>
   });
   </script>
 
-  <!-- Modal For Posting New Tweets: UPPER RIGHT CORNER BUTTON TRIGGERS IT-->
-  <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+  </body>
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span id="modalX" aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">
-      Compose new Tweet
-          </h4>
-        </div>
-
-        <!-- Modal Body -->
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <textarea class="form-control modalTextInputBox" placeholder="What's happening?"></textarea>
-            </div>
-            <div id="modalTextButtonGroup">
-              <span id="modalCharCount">140</span>
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="modalBox-btn">
-                <span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="modalBoxBtn-text">Tweet</span>
-              </button>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div> <!-- END OF MODAL -->
-  
-</body>
 </html>

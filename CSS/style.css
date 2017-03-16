@@ -8,8 +8,7 @@ textarea {
 
 #wrapper {
   position: relative;
-  left: -110px;
-  //left: 70px;
+  left: -70px;
   margin: 0 auto;
   width: 1350px;
   height: 100%;
@@ -51,7 +50,6 @@ textarea {
   width: 600px;
   border: 1px solid #E1E8ED;
   z-index: 100;
-  left: -2px;
 }
 
 .expandedOuterBox {
@@ -61,7 +59,7 @@ textarea {
 .visitor-input-ico {
   position: absolute;
   top: 10px;
-  left: 23px;
+  left: 21px;
   height: 32px;
   width: 32px;
 }
@@ -80,6 +78,7 @@ textarea {
   left: 13px;
 }
 
+
 .commentBox {
   position: absolute;
   top: 8px;
@@ -87,54 +86,22 @@ textarea {
   height: 37px;
   width: 525px;
   z-index: 100;
-  padding-left: 9px;
-  overflow: hidden;
 }
 
 input.commentBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  left: 5px !important;
+  left: 25px;
   color: #696969;
-  position: relative;
-  top: 3px;
 }
-
 input.commentBox::-moz-placeholder { /* Firefox 19+ */
-  left: 5px !important;
+  left: 25px;
   color: #4A4A4A;
 }
-
 input.commentBox::-ms-input-placeholder { /* IE 10+ */
-  left: 5px !important;
+  left: 25px;
   color: #4A4A4A;
 }
-
-.commentBox::-webkit-input-placeholder {
-  position: relative;
-  left: 5px !important;
-  top: 3px;
-}
-
-.commentBox:-moz-placeholder { /* Firefox 18- */
-  position: relative;
-  top: 3px;
-  left: 5px !important;
-}
-
-.commentBox::-moz-placeholder {  /* Firefox 19+ */
-  position: relative;
-  top: 3px;
-  left: 5px !important;
-}
-
-.commentBox:-ms-input-placeholder {  
-  position: relative;
-  top: 3px;
-  left: 5px !important;
-}
-
 .commentBoxExpanded {
   height: 80px;
-  overflow: hidden;
 }
 
 .commentBoxExpanded::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -143,7 +110,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 .commentBoxExpanded::-moz-placeholder { /* Firefox 19+ */
   visibility: hidden;
 }
-.commentoxExpanded::-ms-input-placeholder { /* IE 10+ */
+.commentBoxExpanded::-ms-input-placeholder { /* IE 10+ */
   visibility: hidden;
 }
 .commentBoxExpanded::-moz-placeholder { /* Firefox 18- */
@@ -188,7 +155,7 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
 .recommendedUserUpperRight {
   position: relative;
   top: -12px;
-  left: -6px;
+  left: -3px;
   height: 223px;
   width: 288px;
   border: 1px solid #E1E8ED;
@@ -216,7 +183,6 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   width: 100%;
   height: 100%;
   z-index: 100;
-  left: -1px;
 }
 
 #twtBtnDiv {
@@ -245,20 +211,10 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   opacity: 0;
 }
 
-
-/*
 .charCount {
   position: relative;
   margin-right: 2px;
   visibility: hidden;
-}
-*/
-
-.charCount {
-    position: absolute;
-    margin-right: 2px;
-    left: -34px;
-    top: 10px;
 }
 
 .followDivHeader {
@@ -277,23 +233,17 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   height: 38px;
   width: 100px;
   background: #7A7A7C;
-  left: 10px;
+  //display: none;
 }
 
 #outerBox-btn:hover:enabled {
   background: #525255;
 }
 
-span#modalX {
-  //position: relative;
-  //top: 20%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-body.modal-open, 
-div.modal-backdrop { 
-    z-index: 0; 
+#myModal {
+  position: absolute;
+  top: 20%;
+  z-index: 9999999;
 }
 
 #modalTextButtonGroup {
@@ -332,8 +282,6 @@ div.modal-backdrop {
   top: -7px;
   font-size: 1.2em !important;
   text-align: center;
-  z-index: 0;
-  pointer-events: none;
 }
 
 #modalX {
@@ -554,7 +502,7 @@ div.modal-backdrop {
   position: relative;
   top: -5px;
   width: 288px;
-  height: 509px;
+  height: 492px;
   float: right;
   background: #FFFFFF;
   border: 1px solid #E1E8ED;
@@ -576,7 +524,6 @@ div.modal-backdrop {
   border: 1px solid #E1E8ED;
   width: 600px;
   padding-bottom: 0px;
-  left: -2px;
 }
 
 .tweetText {
@@ -776,10 +723,6 @@ div.modal-backdrop {
 
 .clear { /* breakdivs */
   clear: both;
-}
-
-button.close {
-    z-index: 99999999999;
 }
 
 .likeCount {

@@ -7,7 +7,7 @@
  /*
   * NOTE: TRY ADDING THIS EXTERNAL JS TO BEGINNING OF INTERNAL JS SO THAT
   *       I CAN ADD IN COOKIE FUNCTIONALITY. CURRENTLY INDEX LOADS FIRST, THEN EXT. JS
-  *
+  */
  // Initializing Firebase
 		var config = {
 			apiKey: "AIzaSyDhuyNAJ22Gzni_IyxEft-Z8nxhf3YiFZQ",
@@ -16,7 +16,7 @@
 			storageBucket: "twitter-like-63942.appspot.com", //SET UP NEW AWS ACCOUNT: FREE TIER
 		};
 		firebase.initializeApp(config);
-*/
+
 
 window.streams = {};
 streams.home = [];//MAIN TIMELINE AKA THE HOME TIMELINE
@@ -46,13 +46,7 @@ streams.visitor = []; //Visitor's Tweet Timeline Here
 window.users = Object.keys(streams.users); //LISTS ALL USERNAMES
 
 let visDisName;
-if(localStorage["visDisName"]) {
-   visDisName = localStorage["visDisName"];
-} else {
-	 visDisName = prompt('Please enter your desired Display Name unless remaining anonymous:\nDon\'t worry. You will only be asked once.') || "Visitor Account";
-	 localStorage.setItem('visDisName',visDisName);
-}
-window.visitor = visDisName;
+window.visitor = visDisName = prompt('Please enter your desired Display Name unless remaining anonymous:\nDon\'t worry. You will only be asked once.') || "Visitor Account"; //NEED FILTER TEXT!
 //SET COOKIE HERE. CHECK FOR COOKIE AT BEGINNING OF SCRIPT.
 //IF COOKIE NOT FOUND, RUN AS USUAL.
 //ELSE DUMPCOOKIEVAL
@@ -125,16 +119,7 @@ let visUIcon;
 let visBGImg;
 let num = Math.floor(Math.random() * (64529-23040) + 23040);
 let visUName;
-//streams.visitor.uName = visUName = 'guest'+num;
-
-if(localStorage["visUName"]) {
-   visUName = localStorage["visUName"];
-} else {
-	 visUName = 'guest'+num;
-	 localStorage.setItem('visUName',visUName);
-}
-streams.visitor.uName = visUName;
-
+streams.visitor.uName = visUName = 'guest'+num;
 streams.visitor.uIcon = visUIcon = 'http://i68.tinypic.com/fx57hs.png';
 streams.visitor.bgImg = visBGImg ='http://i65.tinypic.com/21acvaw.jpg';
 
@@ -458,7 +443,6 @@ $(".commentBox").keypress(function(e) {
         $('.charCount').text(charCount);
     }
 });
-
 
 
 //RETURN INPUT BOX TO CLOSED/RETRACTED MODE:
