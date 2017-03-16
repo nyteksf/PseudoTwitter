@@ -1,2 +1,2 @@
-# PseudoTwitterApp - http://nyteksf.github.io/PseudoTwitterApp/index.html/
+# PseudoTwitterApp - http://nyteksf.github.io/PseudoTwitter/index.html/
 Twitter Clone w/ Interactive Mock UI
