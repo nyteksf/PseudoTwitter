@@ -48,7 +48,7 @@ div#container-div {
 }
 
 .navbar.navbar-default {
-  width: 1278px !important;
+  width: 1295px !important; /*width: 1278px !important;*/
 }
 
 .mainTweetInputBox {
