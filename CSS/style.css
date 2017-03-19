@@ -43,8 +43,8 @@ textarea {
 }
 
 div#container-div {
-    position: absolute;
-    left: -5px;
+    position: absolute !important;
+    left: -5px !important;
 }
 
 .mainTweetInputBox {
