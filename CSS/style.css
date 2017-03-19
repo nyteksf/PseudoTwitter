@@ -42,6 +42,11 @@ textarea {
   pointer-events: none;
 }
 
+div#container-div {
+    position: absolute;
+    left: -5px;
+}
+
 .mainTweetInputBox {
   position: relative;
   top: -11px;
