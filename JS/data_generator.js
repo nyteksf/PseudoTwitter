@@ -120,25 +120,25 @@ let visBGImg;
 let num = Math.floor(Math.random() * (64529-23040) + 23040);
 let visUName;
 streams.visitor.uName = visUName = 'guest'+num;
-streams.visitor.uIcon = visUIcon = 'http://i68.tinypic.com/fx57hs.png';
-streams.visitor.bgImg = visBGImg ='http://i65.tinypic.com/21acvaw.jpg';
+streams.visitor.uIcon = visUIcon = './images/anonuser.png';
+streams.visitor.bgImg = visBGImg ='./images/visbgimg.jpg';
 
 //ADDING ICONS TO STRUCTURES
-streams.users.shawndrost.icon = "http://i64.tinypic.com/2dqply1.gif";
-streams.users.sharksforcheap.icon = "http://i67.tinypic.com/e5fo5l.gif";
-streams.users.mracus.icon = "http://i68.tinypic.com/2luzx29.gif";
-streams.users.douglascalhoun.icon = "http://i63.tinypic.com/w98oko.gif";
-streams.users.nyteksf.icon = "http://i65.tinypic.com/dn2fdf.gif";
-streams.users.bigblocho5.icon = "http://i64.tinypic.com/1zbuseg.gif";
-streams.users.kflores86.icon = "http://i65.tinypic.com/f1ezq.gif";
-streams.users.inessaskaya.icon = "http://i66.tinypic.com/2zprzog.gif";
-streams.users.bugbountyhuntr.icon = "http://i63.tinypic.com/rjgzr5.gif";
-streams.users.difezza.icon = "http://i64.tinypic.com/24vtm61.gif";
-streams.users.sharpdesignfirm.icon = "http://i66.tinypic.com/2ronv52.gif";
-streams.users.cyxo387.icon = "http://i68.tinypic.com/2dklrbd.gif";
-streams.users.jsdaily.icon = "http://i67.tinypic.com/ek1d95.gif";
-streams.users.datamsecurity.icon = "http://i63.tinypic.com/2lvfmkg.gif";
-streams.users.evanwilliams.icon = "http://i66.tinypic.com/2csa16p.gif";
+streams.users.shawndrost.icon = "./images/users/elonmusk.jpg";
+streams.users.sharksforcheap.icon = "./images/users/sharksforcheap.jpg";
+streams.users.mracus.icon = "./images/users/mracus.jpg";
+streams.users.douglascalhoun.icon = "./images/users/douglascalhoun.jpg";
+streams.users.nyteksf.icon = "./images/users/nyteksfGIF.gif";
+streams.users.bigblocho5.icon = "./images/users/bigblocho5.jpg";
+streams.users.kflores86.icon = "./images/users/kflores86.jpg";
+streams.users.inessaskaya.icon = "./images/users/inessaskaya.jpg";
+streams.users.bugbountyhuntr.icon = "./images/users/bugbountyhuntr.jpg";
+streams.users.difezza.icon = "./images/users/difezza.jpg";
+streams.users.sharpdesignfirm.icon = "./images/users/sharpdesignfirm.jpg";
+streams.users.cyxo387.icon = "./images/users/cyxo387.jpg";
+streams.users.jsdaily.icon = "./images/users/jsdaily.jpg";
+streams.users.datamsecurity.icon = "./images/users/datamsecurity.jpg";
+streams.users.evanwilliams.icon = "./images/users/evanwilliams.jpg";
 
 //ADDING DISPLAY NAMES NEXT
 streams.users.shawndrost.disName = "Shawn Drost";
@@ -159,8 +159,9 @@ streams.users.evanwilliams.disName = "Evan Williams";
 
 //ADD POSTABLE IMAGES FOR TWEETS:
 window.tweetRelated = {};
-tweetRelated.cachedInfo = ['http://i68.tinypic.com/122ohm9.jpg','http://i64.tinypic.com/2cwpzph.jpg','http://i68.tinypic.com/2vc6t4z.jpg','http://i68.tinypic.com/2isdvrt.jpg','http://i67.tinypic.com/211ue01.jpg','http://i68.tinypic.com/1yqp8w.jpg','http://i63.tinypic.com/1z1h9a0.jpg','http://i64.tinypic.com/2hs9ce8.jpg','http://i68.tinypic.com/1445v5s.jpg','http://i68.tinypic.com/65myah.jpg','http://i67.tinypic.com/w1sejb.jpg','http://i63.tinypic.com/25s8t9z.jpg','http://i65.tinypic.com/103cuhs.jpg','http://i64.tinypic.com/2u8gmlc.jpg','http://i67.tinypic.com/2yy33v4.jpg','http://i65.tinypic.com/6eowhk.png','http://i67.tinypic.com/dcupt.jpg','http://i64.tinypic.com/2ds48dz.png','http://i64.tinypic.com/2w3tkiq.jpg','http://i67.tinypic.com/2yy33v4.jpg','http://i65.tinypic.com/289vbew.jpg','http://i68.tinypic.com/122ohm9.jpg','http://i64.tinypic.com/2hs9ce8.jpg'];
-
+tweetRelated.cachedInfo = [
+  './images/CiG1CoVXEAAyaWr.jpg','./images/CifWPFEWEAAnM3N.jpg','./images/Cip8qnvWsAAOe6x.jpg','./images/E7zn1aH_.png','./images/series3.jpg','./images/series3c.jpg','./images/series3c.png','./images/series3d.jpg','./images/series3e.png','./images/series3f.jpg','./images/series3i.png','./images/series3j.jpg','./images/series3k.jpg','./images/series4a.jpg','./images/series4b.jpg','./images/series4c.jpg','./images/series4d.jpg','./images/series4e.png','./images/series4f.jpg','./images/series4f.jpg','./images/series4f.jpg','./images/series4h.jpg','./images/seroes3b.png'
+];
 
 //SELECT A URL AT RANDOM FROM ABOVE LIST AND RETURN
 let getRandURL = function() {
@@ -172,6 +173,7 @@ let getRandURL = function() {
 let $box = $('.box');
 
 
+//GENERATE CUSTOM GUEST GENERATED TWEET
 let guestTweet = function() {
   guestTweeting = false; //RESET FOR NEXT ENTRY
   var tweet = streams.home[streams.home.length-1];
@@ -209,8 +211,8 @@ var randomElement = function(array){
 var opening = ['just', '', '', '', '', 'ask me how i', 'completely', '', 'nearly', 'productively', '', 'last night i', 'vladimir putin', 'linus torvalds', 'the president', 'that techno wizard', 'a ninja', 'a seedy old man'];
 var verbs = ['drank', 'crashed', 'deployed', 'got', 'programmed', 'trojaned', 'coded', 'developed', 'built', 'tested', 'debugged', 'refactored', 'experienced', 'fought off', 'ported OSX apps for', 'hardened', 'enjoyed', 'coded apps for', 'DDoS\'ed', 'cracked', 'reverse engineered', 'developed', 'consumed', 'debunked', 'entered', 'went through', 'made', 'wrote', 'saw'];
 var objects = ['my', 'Joe Coviello\'s', 'the', 'John Cabot\'s', 'a', 'my', 'an entire', 'this', 'that', 'the', 'a buffer overflow in the', 'the big', 'your', 'a new form of'];
-var nouns = ['cat', 'koolaid', 'system', 'irc chatbot', 'javascript library', 'intrusion detection system', 'compiler', 'city grid', 'Raspberry Pi server', 'worm', 'cloud', 'potato script', 'currency converter', 'way of life', 'belief system', 'security system', 'bitcoin mine', 'dangerous decision', 'future', 'massive botnet', 'life', 'operating system', 'mind'];
-var tags = ['#techlife', '#colormebad', '#infosec', '#burningman', '#sf', '#omg #lol', "#w00t", '#counterterrorismops', '#linux', 'left-handed and blindfolded', '#infosec', '', '#sorcery', '#technowizardry', '#w00t #UID_0', '#javascript', "#winning", 'but only i know how', 'like whoa', '#sxsw', '#ballin', '#omg', '#yolo', '#hacktheplanet', '#magic', '', '', '', ''];
+var nouns = ['cat', 'koolaid', 'system', 'irc chatbot', 'javascript library', 'intrusion detection system', 'compiler', 'city grid', 'Raspberry Pi server', 'worm', 'cloud', 'potato script', 'currency converter', 'way of life', 'belief system', 'security system', 'bitcoin mine', 'dangerous decision', 'future', 'massive botnet', 'life', 'operating system', 'mind', 'honeypot server', 'goat'];
+var tags = ['#techlife', '#colormebad', '#infosec', '#burningman', '#sf', '#omg #lol', "#w00t", '#counterterrorismops', '#linux', 'left-handed and blindfolded', '#infosec', '', '#sorcery', '#technowizardry', '#w00t #UID_0', '#javascript', "#winning", 'but only i know how', '#likewhoa', '#sxsw', '#ballin', '#omg', '#yolo', '#hacktheplanet', '#magic', '', '', '', ''];
 
 
 var randomMessage = function(){
@@ -468,8 +470,8 @@ $('#newTweets-btn').click(function(){
   updateTrendingTweets();
 });
 
-
 $('#outerBox-btn').click(function(){
+  console.log("asdasdasdasdas")
   let message = $('.commentBox').val();
   $('.commentBox').val(" ");
   writeTweet(message);

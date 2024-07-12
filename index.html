@@ -55,8 +55,8 @@
 
         <!-- Button trigger new Tweet input modal -->
         <ul class="nav navbar-nav navbar-right">
-          <button type="submit" class="btn btn-secondary" id="tweetBtn" data-toggle="modal" data-target="#myModal"><span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="wordTWEETTop">Tweet</span>
-          </button>
+         <!-- <button type="submit" class="btn btn-secondary" id="tweetBtn" data-toggle="modal" data-target="#myModal"><span id="tweeting-ico" class="glyphicon glyphicon-edit"></span> <span id="wordTWEETTop">Tweet</span>
+          </button> -->
         </ul>
         <form id="searchWrapper" class="navbar-form navbar-right" role="search">
           <div class="form-group">
@@ -98,7 +98,7 @@
 
 <!-- 'TWITTER INTENT' USAGE => FOLLOWS 'USER ADD' -->
 <div id="hideMe">
-      <a href='https://twitter.com/intent/follow?screen_name=nyteksf' id="trigger" onclick='window.open(this.href,"popupwindow", "width=555,height=590,left=200,top=5,scrollbars,toolbar=0,resizable"); return false;' Target='_blank'>FOLLOW ME</a>
+      <a href='https://twitter.com/intent/follow?screen_name=elonmusk' id="trigger" onclick='window.open(this.href,"popupwindow", "width=555,height=590,left=200,top=5,scrollbars,toolbar=0,resizable"); return false;' Target='_blank'>FOLLOW ME</a>
 </div>
 
 
@@ -107,9 +107,11 @@
 
   <!-- Visitor Info HUD - Upper Left Corner -->
   <div id="visitorProfileInfoDiv">
-    <img src="http://i65.tinypic.com/21acvaw.jpg" id="visitor-left-background-img" />
-    <img src="images/anonuser.png" id="visitor-left-profile-img" />
-  </div>
+    <img src="./images/visitorbg1500x500.jpg" id="visitor-left-background-img" />
+    <div class="profile-img-wrapper">  
+      <img src="./images/anonuser.png" id="visitor-left-profile-img" />
+    </div>
+    </div>
 
 <div class="clear"></div>
 
@@ -519,6 +521,9 @@ Follow</span></button></div>
     }
   });
 
+  $("#home-btn-a").click(function(){
+    $('.tweetsOutput').show(); 
+  });
 
   //LOAD NEW TWEETS INTO PERSONAL TWITTER STREAM:
   $('#newTweets-btn').click(function(){
@@ -563,12 +568,11 @@ Follow</span></button></div>
   $(document).delegate('button.retweetBtn', 'click', function(){
     streams.retweets++;
     $(this).find('.retweetCount').show();
-    let retweetCounter = 0; //LIMIT OF ONE Retweet PER PERSOM
+    let retweetCounter = 0; //LIMIT OF ONE Retweet PER PERSON
     retweetCounter++;
     $(this).find('.retweetCount').text(retweetCounter);
     $(this).find('.retweetCount').removeClass('hideRetweetCount');
   });
-
 
   //FUNCTION TO HIDE CERTAIN TWEETS BUT NOT OTHERS
   $('body').delegate('.trendDivLink', 'click', function(event){
@@ -576,6 +580,7 @@ Follow</span></button></div>
       let out = this.className;
       out = out.split(" ");
       out = out[1];
+      $("#newTweets-btn").click();
       $('.tweetsOutput').show(); //UNDO ANY PRIOR SELECTIONS STILL IN EFFECT
       $('.tweetsOutput').not("."+out).hide();
   });
