@@ -302,7 +302,7 @@ $(document).ready(function(){
 
             $tweet = $('<h5 class="tweetsOutput '+tweet.user+' '+trendWord+'"></h5>');
             $tweet.html('<div class="imgWrap"><img class="tweetIcon" src="'+tweet.icon+'"/></div><big><small><strong><span class="tweetText">'+tweet.disName+'</span></strong> <span class="tweetSubtext"> @'+tweet.user+' &middot; <span data-livestamp="'+tweet.created_at+'"></span></span><br><span class="tweetText">'+tweet.message+'</span></strong></big></small>');
-            $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/nyteksf" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
+            $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/elonmusk" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
             $tweet.append('<div id="tweetFooters"><button class="shareBtn"><span id="share-glyphicon" class="glyphicon glyphicon-share-alt tweetBottoms"></span></button><button class="retweetBtn"><span id="retweet-glyphicon" class="glyphicon glyphicon-retweet tweetBottoms"><span class="retweetCount makeHidden">0</span></span></button><button class="heartIconBtn"><span id="heartIcon-glyph" class="glyphicon glyphicon-heart tweetBottoms"><span class="likeCount hideLikeCount">0</span></span></button><button class="optionBtn"><span class="option-horizontal-glyphicon glyphicon glyphicon-option-horizontal  tweetBottoms"></span></button></div>');
             trendWord = "";
           } else { //OR POST WITHOUT IMAGE INSTEAD:
@@ -316,7 +316,7 @@ $(document).ready(function(){
 
             $tweet = $('<h5 class="tweetsOutput '+tweet.user+'"></h5>');
             $tweet.html('<div class="imgWrap"><img class="tweetIcon" src="'+tweet.icon+'"/></a><big><small><strong><span class="tweetText">'+tweet.disName+'</span></strong> <span class="tweetSubtext"> @'+tweet.user+' &middot; <span data-livestamp="'+tweet.created_at+'"></span></span><br><span class="tweetText">'+tweet.message+'</span></strong></big></small>');
-            $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/nyteksf" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
+            $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/elonmusk" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
             $tweet.append('<div id="tweetFooters"><button class="shareBtn"><span id="share-glyphicon" class="glyphicon glyphicon-share-alt tweetBottoms"></span></button><button class="retweetBtn"><span id="retweet-glyphicon" class="glyphicon glyphicon-retweet tweetBottoms"><span class="retweetCount makeHidden">0</span></span></button><button class="heartIconBtn"><span id="heartIcon-glyph" class="glyphicon glyphicon-heart tweetBottoms"><span class="likeCount hideLikeCount">0</span></span></button><button class="optionBtn"><span class="option-horizontal-glyphicon glyphicon glyphicon-option-horizontal  tweetBottoms"></span></button></div>');
           } else {
             $tweet = $('<h5 class="tweetsOutput '+tweet.user+'"></h5>');
@@ -353,7 +353,7 @@ $(document).ready(function(){
 
         $tweet = $('<h5 class="tweetsOutput '+tweet.user+' '+trendWord+'"></h5>');
         $tweet.html('<div class="imgWrap"><img class="tweetIcon" src="'+tweet.icon+'" /></div><big><small><strong><span class="tweetText">'+tweet.disName+'</span></strong> <span class="tweetSubtext"> @'+tweet.user+' &middot; <span data-livestamp="'+tweet.created_at+'"></span></span><br><span class="tweetText">'+tweet.message+'</span></strong></big></small>');
-        $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/nyteksf" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
+        $tweet.append('<div class="tweetAddedImage"><a href="https://" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
         $tweet.append('<div id="tweetFooters"><button class="shareBtn"><span id="share-glyphicon" class="glyphicon glyphicon-share-alt tweetBottoms"></span></button><button class="retweetBtn"><span id="retweet-glyphicon" class="glyphicon glyphicon-retweet tweetBottoms"><span class="retweetCount">0</span></span></button><button class="heartIconBtn"><span id="heartIcon-glyph" class="glyphicon glyphicon-heart tweetBottoms"><span class="likeCount hideLikeCount">0</span></span></button><button class="optionBtn"><span class="option-horizontal-glyphicon glyphicon glyphicon-option-horizontal  tweetBottoms"></span></button></div>');
         trendWord = "";
       } else {
@@ -367,7 +367,7 @@ $(document).ready(function(){
 
         $tweet = $('<h5 class="tweetsOutput '+tweet.user+'"></h5>');
         $tweet.html('<div class="imgWrap"><img class="tweetIcon" src="'+tweet.icon+'" /></div><big><small><strong><span class="tweetText">'+tweet.disName+ '</span></strong> <span class="tweetSubtext"> @'+tweet.user+' &middot; <span data-livestamp="'+tweet.created_at+'"></span></span><br><span class="tweetText">'+tweet.message+'</span></strong></big></small>');
-        $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/nyteksf" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
+        $tweet.append('<div class="tweetAddedImage"><a href="https://twitter.com/elonmusk" target="_blank"><img src="'+tweet.postImg+'" class="postedImages" /></a></div>');
         $tweet.append('<div id="tweetFooters"><button class="shareBtn"><span id="share-glyphicon" class="glyphicon glyphicon-share-alt tweetBottoms"></span></button><button class="retweetBtn"><span id="retweet-glyphicon" class="glyphicon glyphicon-retweet tweetBottoms"><span class="retweetCount">0</span></span></button><button class="heartIconBtn"><span id="heartIcon-glyph" class="glyphicon glyphicon-heart tweetBottoms"><span class="likeCount hideLikeCount">0</span></span></button><button class="optionBtn"><span class="option-horizontal-glyphicon glyphicon glyphicon-option-horizontal  tweetBottoms"></span></button></div>');
       } else {
         $tweet = $('<h5 class="tweetsOutput '+tweet.user+'"></h5>');
