@@ -104,7 +104,7 @@ let visBGImg;
 let num = Math.floor(Math.random() * (64529-23040) + 23040);
 let visUName;
 streams.visitor.uName = visUName = 'guest'+num;
-streams.visitor.uIcon = visUIcon = 'http://i68.tinypic.com/fx57hs.png';
+streams.visitor.uIcon = visUIcon = '';
 streams.visitor.bgImg = visBGImg ='http://i65.tinypic.com/21acvaw.jpg';
 
 //ADDING ICONS TO STRUCTURES
@@ -202,7 +202,7 @@ scheduleNextTweet(); //KICK OFF UPDATES! :)
 
 // Utility function for allowing user to "write a tweet":
 // (note: not used by the rest of this file.)
-
+let guestUserTweetCount = 0;
 var writeTweet = function(message){
 
   if(!visitor){  //SHOULD BE GLOBAL
@@ -213,7 +213,7 @@ var writeTweet = function(message){
 
   tweet.user = visUName; //eg, '@guest39499'
   tweet.message = message || randomMessage(); //message; //MODAL TEXT BOX OUTPUT HERE ON SUBMIT AS .val()
-  tweet.icon = visUIcon; //http://i68.tinypic.com/fx57hs.png //REMEMBER TO REPLACE CUR. TMP. ICON WITH CUSTOM GUEST ICO
+  tweet.icon = visUIcon; 
   tweet.disName = visDisName; //<=FALLBACK TO DEFAULT, BUT PROMPT ONE TIME AT LOAD. STORE COOKIE
   tweet.created_at = new Date(); //ADDED TIMESTAMP FUNCTIONALITY
   guestTweeting = true;
@@ -345,7 +345,9 @@ $('#newTweets-btn').click(function(){
   updateTrendingTweets();
   });
 
+
 $('#outerBox-btn').click(function(){
+  console.log("asadsasd")
   let message = $('.commentBox').val();
   $('.commentBox').val(" ");
   writeTweet(message);

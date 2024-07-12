@@ -69,9 +69,16 @@ div#container-div {
 .visitor-input-ico {
   position: absolute;
   top: 10px;
-  left: 21px;
-  height: 32px;
-  width: 32px;
+  left: 17px;
+  height: 38px;
+  width: 38px;
+}
+
+.commentBox::placeholder {
+  position: relative;
+  top: 4px;
+  left: 2px;
+  font-size: 13px;
 }
 
 #newTweets-btn:hover {
@@ -89,7 +96,7 @@ div#container-div {
   position: absolute;
   top: 8px;
   left: 63px;
-  height: 37px;
+  height: 40px;
   width: 525px;
   z-index: 100;
 }
@@ -127,6 +134,8 @@ input.commentBox::-ms-input-placeholder { /* IE 10+ */
   margin-top: 11px;
   padding-left: 35px;
   margin-bottom: 1px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .tweetAddedImage {
